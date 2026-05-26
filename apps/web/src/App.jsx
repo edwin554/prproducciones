@@ -10,6 +10,7 @@ import EventosPage from './pages/EventosPage.jsx';
 import PabloRozoPage from './pages/PabloRozoPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 
+// Componente principal de la aplicación que gestiona las rutas del sitio web.
 function App() {
   return (
     <Router>
