@@ -1,0 +1,18 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black rounded square background -->
+  <rect width="512" height="512" rx="112" ry="112" fill="#1a1a1a"/>
+  
+  <!-- Red accent border (subtle) -->
+  <rect width="512" height="512" rx="112" ry="112" fill="none" stroke="#DC143C" stroke-width="4"/>
+  
+  <!-- Stylized Microphone Icon -->
+  <g transform="translate(128, 128) scale(10.666)">
+    <!-- Mic Head -->
+    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" fill="#DC143C"/>
+    <!-- Mic Stand/Holder -->
+    <path d="M19 10v2a7 7 0 0 1-14 0v-2" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Stand Base -->
+    <line x1="12" y1="19" x2="12" y2="22" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="8" y1="22" x2="16" y2="22" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
