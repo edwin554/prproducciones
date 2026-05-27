@@ -30,7 +30,7 @@ const Header = () => {
                 <div className="text-2xl font-bold text-primary">PR</div>
                 <div className="text-xl font-semibold text-secondary hidden sm:block">PRODUCCIONES</div>
               </Link>
-              <div className="hidden md:flex items-center space-x-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
+              <div className="hidden md:flex items-center space-x-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase whitespace-nowrap">
                 <Clock className="w-3 h-3 mr-1" />
                 24/7 Disponibles
               </div>
@@ -42,7 +42,7 @@ const Header = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  className={`px-2 xl:px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive(link.path)
                       ? 'bg-primary text-white'
                       : 'text-foreground hover:bg-accent hover:text-accent-foreground'
@@ -54,10 +54,10 @@ const Header = () => {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <a href="tel:+573117318419" className="flex items-center space-x-2 text-sm text-foreground hover:text-primary transition-colors duration-200">
+            <div className="hidden lg:flex items-center space-x-2 xl:space-x-4">
+              <a href="tel:+573117318419" className="flex items-center space-x-2 text-sm text-foreground hover:text-primary transition-colors duration-200 whitespace-nowrap">
                 <Phone className="w-4 h-4" />
-                <span className="font-medium">+57 311 731 8419</span>
+                <span className="font-medium whitespace-nowrap">+57 311 731 8419</span>
               </a>
               <Button asChild className="bg-primary hover:bg-primary/90">
                 <Link to="/contacto">Cotiza ahora</Link>
