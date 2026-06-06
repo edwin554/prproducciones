@@ -62,7 +62,7 @@ const HomePage = () => {
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-secondary px-10 py-7 text-lg font-bold transition-all duration-200 active:scale-[0.98]">
+                <Button asChild size="lg" variant="outline" className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-secondary px-10 py-7 text-lg font-bold transition-all duration-200 active:scale-[0.98]">
                 <Link to="/servicios">{homePageContent.hero.secondaryCtaLabel}</Link>
                 </Button>
               </div>
