@@ -124,20 +124,20 @@ const HomePage = () => {
             }} transition={{
               duration: 0.6
             }} className="space-y-6">
-                <div className="text-emphasis">Liderazgo y Experiencia</div>
+                <div className="text-emphasis">Experiencia y Compromiso</div>
                 <h2 className="text-4xl md:text-5xl font-black text-foreground leading-tight tracking-tight">
-                  Pablo Rozo
+                  PR Producciones
                 </h2>
                 <p className="text-xl text-foreground/80 leading-relaxed font-medium">
-                  Director ejecutivo de PR PRODUCCIONES y líder de <span className="text-primary font-bold">La Autonomía Vallenata</span>.
+                  Productora y agencia de eventos de alto impacto con cobertura a nivel nacional.
                 </p>
                 <p className="text-lg text-foreground/70 leading-relaxed">
-                  Un profesional integral en el mundo de los eventos y la producción musical. Con experiencia como cantante, compositor, productor vallenato, locutor, músico y embajador de marca, Pablo combina su talento artístico con una visión estratégica para crear experiencias memorables en cada evento.
+                  Nos especializamos en la planificación, logística integral y producción técnica de eventos corporativos, comerciales y artísticos. Con un equipo calificado y disponibilidad 24/7, garantizamos la ejecución perfecta de tu proyecto, asegurando que tu marca se destaque y conecte de manera real con el público en cualquier lugar del país.
                 </p>
                 <div className="pt-6">
                   <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white px-8 py-6 text-lg font-bold transition-all duration-200 active:scale-[0.98]">
-                    <Link to="/sobre-pablo">
-                      Conoce más sobre Pablo
+                    <Link to="/servicios">
+                      Explorar nuestros servicios
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
