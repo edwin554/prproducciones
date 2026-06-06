@@ -34,26 +34,26 @@ const Header = () => {
     <>
       <header className={`sticky top-0 z-50 border-b bg-white/90 backdrop-blur-xl transition-all duration-300 ${hasScrolled ? 'border-border/80 shadow-lg shadow-black/10' : 'border-transparent shadow-sm'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex h-20 items-center justify-between gap-4 xl:gap-6">
             {/* Logo & Badge */}
-            <div className="flex items-center space-x-4 flex-shrink-0">
-              <Link to="/" className="flex items-center space-x-2">
+            <div className="flex flex-shrink-0 items-center gap-5 xl:gap-6">
+              <Link to="/" className="flex items-center gap-2.5">
                 <div className="text-2xl font-bold text-primary">{siteConfig.brand.monogram}</div>
                 <div className="text-xl font-semibold text-secondary hidden sm:block">{siteConfig.brand.displayName}</div>
               </Link>
-              <div className="premium-surface hidden md:flex lg:hidden xl:flex items-center space-x-1 rounded-full border border-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase whitespace-nowrap text-white">
+              <div className="premium-surface hidden items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase whitespace-nowrap text-white md:flex lg:hidden xl:flex">
                 <Clock className="w-3 h-3 mr-1" />
                 {siteConfig.availabilityLabel}
               </div>
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1 flex-shrink-0">
+            <nav className="hidden flex-1 items-center justify-center gap-1.5 px-4 lg:flex xl:gap-2 xl:px-6">
               {navigationLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-1.5 xl:px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap ${
+                  className={`rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 whitespace-nowrap xl:px-4 ${
                     isActive(link.path)
                       ? 'premium-surface text-white shadow-lg shadow-primary/20'
                       : 'text-foreground hover:bg-accent hover:text-accent-foreground'
@@ -65,8 +65,8 @@ const Header = () => {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center space-x-2 xl:space-x-4 flex-shrink-0">
-              <a href={siteConfig.phone.href} className="flex items-center space-x-1.5 xl:space-x-2 text-sm text-foreground hover:text-primary transition-colors duration-200 whitespace-nowrap">
+            <div className="hidden flex-shrink-0 items-center gap-3 lg:flex xl:gap-4">
+              <a href={siteConfig.phone.href} className="flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors duration-200 whitespace-nowrap">
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <span className="font-medium whitespace-nowrap">{siteConfig.phone.display}</span>
               </a>

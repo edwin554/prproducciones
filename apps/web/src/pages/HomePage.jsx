@@ -72,7 +72,7 @@ const HomePage = () => {
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
-               <Button asChild size="lg" variant="outline" className="premium-outline-button border-2 px-10 py-7 text-lg font-bold active:scale-[0.98]">
+               <Button asChild size="lg" variant="outline" className="premium-outline-button border-2 bg-transparent px-10 py-7 text-lg font-bold text-white hover:text-white active:scale-[0.98]">
                 <Link to="/eventos">{homePageContent.hero.secondaryCtaLabel}</Link>
                 </Button>
               </div>
@@ -197,7 +197,7 @@ const HomePage = () => {
                <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold text-white shadow-xl active:scale-[0.98]">
                 <Link to="/contacto">{homePageContent.cta.contactCtaLabel}</Link>
                 </Button>
-               <Button asChild size="lg" variant="outline" className="premium-outline-button border-2 px-10 py-7 text-lg font-bold active:scale-[0.98]">
+               <Button asChild size="lg" variant="outline" className="premium-outline-button border-2 bg-transparent px-10 py-7 text-lg font-bold text-white hover:text-white active:scale-[0.98]">
                 <a href={siteConfig.phone.href}>{homePageContent.cta.callCtaLabel}</a>
                 </Button>
               </div>
