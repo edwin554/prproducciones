@@ -6,28 +6,15 @@ import { ArrowRight, Target, TrendingUp, Zap, CheckCircle2 } from 'lucide-react'
 import { motion } from 'framer-motion';
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
+import { activacionBtlPageContent, pageSeo } from '@/data/pages';
 
 const ActivacionBTLPage = () => {
-  const whyChooseUsPoints = [
-    {
-      title: "Presentación Impecable",
-      description: "Puntualidad, pulcritud y excelente presentación personal de todo nuestro equipo en el punto de activación."
-    },
-    {
-      title: "Personal Calificado",
-      description: "Equipo que se preocupa por entender la necesidad específica de tu espacio comercial para conectar con tu audiencia."
-    },
-    {
-      title: "Valor Agregado",
-      description: "Entregamos el valor agregado que busca una gran empresa, mediana o negocio emergente para destacar."
-    }
-  ];
-
   return (
     <>
       <Helmet>
-        <title>Activación BTL - PR PRODUCCIONES</title>
-        <meta name="description" content="NO PIERDAS MAS DINERO ACTIVA CON NOSOTROS. Impactamos con estrategia tu espacio comercial para que tu flujo de caja sea contundente." />
+        <title>{pageSeo.activacionBtl.title}</title>
+        <meta name="description" content={pageSeo.activacionBtl.description} />
+        <link rel="canonical" href={pageSeo.activacionBtl.canonicalUrl} />
       </Helmet>
 
       <Header />
@@ -37,8 +24,8 @@ const ActivacionBTLPage = () => {
         <section className="relative min-h-[80dvh] flex items-center justify-center overflow-hidden bg-secondary">
           <div className="absolute inset-0 z-0">
             <img
-              src="https://images.unsplash.com/photo-1609869510749-19872196be1e"
-              alt="Activación BTL profesional"
+              src={activacionBtlPageContent.hero.backgroundImage}
+              alt={activacionBtlPageContent.hero.backgroundAlt}
               className="w-full h-full object-cover opacity-40"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/80 to-transparent"></div>
@@ -51,13 +38,13 @@ const ActivacionBTLPage = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="text-primary font-black tracking-widest uppercase mb-6 text-lg md:text-xl">
-                Estrategia Directa
+                {activacionBtlPageContent.hero.eyebrow}
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-8xl font-black text-white mb-8 leading-none tracking-tighter">
-                NO PIERDAS MAS DINERO <br/><span className="text-primary">ACTIVA CON NOSOTROS</span>
+                {activacionBtlPageContent.hero.title} <br/><span className="text-primary">{activacionBtlPageContent.hero.highlight}</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto font-medium">
-                Todas las estrategias BTL, por más descabelladas que sean, las hacemos posibles.
+                {activacionBtlPageContent.hero.description}
               </p>
             </motion.div>
           </div>
@@ -69,22 +56,22 @@ const ActivacionBTLPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight">
-                  Impactamos con estrategia tu espacio comercial
+                  {activacionBtlPageContent.valueProposition.title}
                 </h2>
                 <p className="text-xl text-white/90 font-medium leading-relaxed">
-                  Para que tu flujo de caja sea contundente. Aumentar tus ventas y crear la mejor impresión es nuestro objetivo principal.
+                  {activacionBtlPageContent.valueProposition.description}
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="bg-white/10 p-6 rounded-2xl border border-white/20">
                   <Target className="w-10 h-10 mb-4 text-white" />
-                  <h3 className="text-xl font-bold mb-2">Estrategia</h3>
-                  <p className="text-white/80">Acciones dirigidas al público correcto.</p>
+                  <h3 className="text-xl font-bold mb-2">{activacionBtlPageContent.valueProposition.cards[0].title}</h3>
+                  <p className="text-white/80">{activacionBtlPageContent.valueProposition.cards[0].description}</p>
                 </div>
                 <div className="bg-white/10 p-6 rounded-2xl border border-white/20">
                   <TrendingUp className="w-10 h-10 mb-4 text-white" />
-                  <h3 className="text-xl font-bold mb-2">Resultados</h3>
-                  <p className="text-white/80">Aumento directo en flujo de caja.</p>
+                  <h3 className="text-xl font-bold mb-2">{activacionBtlPageContent.valueProposition.cards[1].title}</h3>
+                  <p className="text-white/80">{activacionBtlPageContent.valueProposition.cards[1].description}</p>
                 </div>
               </div>
             </div>
@@ -96,12 +83,12 @@ const ActivacionBTLPage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight">
-                Por qué elegirnos para tu BTL
+                {activacionBtlPageContent.reasonsTitle}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {whyChooseUsPoints.map((point, index) => (
+              {activacionBtlPageContent.reasons.map((point, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
@@ -131,14 +118,14 @@ const ActivacionBTLPage = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight tracking-tight">
-                Impulsa tu marca con nosotros
+                {activacionBtlPageContent.cta.title}
               </h2>
               <p className="text-xl text-white/80 mb-10 leading-relaxed max-w-2xl mx-auto font-medium">
-                Contáctanos hoy y descubre cómo podemos activar tu marca de manera efectiva, creativa y profesional. 24/7 Disponibles.
+                {activacionBtlPageContent.cta.description}
               </p>
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-7 text-lg font-bold transition-all duration-200 active:scale-[0.98] shadow-xl shadow-primary/20">
                 <Link to="/contacto">
-                  Solicitar cotización
+                  {activacionBtlPageContent.cta.label}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>

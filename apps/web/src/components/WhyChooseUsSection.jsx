@@ -4,39 +4,16 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import WhyChooseUsCard from './WhyChooseUsCard.jsx';
+import { whyChooseUsSectionContent } from '@/data/sections';
 
-const reasons = [
-  { 
-    icon: Briefcase, 
-    title: 'Experiencia Comprobada', 
-    description: 'Años de trayectoria en el mercado garantizan resultados excepcionales y un manejo impecable en cada activación.' 
-  },
-  { 
-    icon: MapPin, 
-    title: 'Cobertura Nacional', 
-    description: 'Llegamos a cualquier rincón de Colombia con la misma calidad, infraestructura y compromiso inquebrantable.' 
-  },
-  { 
-    icon: Clock, 
-    title: 'Disponibilidad 24/7', 
-    description: 'Tu marca no descansa, nosotros tampoco. Estamos listos para ejecutar estrategias en el momento que nos necesites.' 
-  },
-  { 
-    icon: Users, 
-    title: 'Equipo Profesional', 
-    description: 'Personal altamente capacitado, con excelente presentación, actitud de servicio y enfoque en resultados.' 
-  },
-  { 
-    icon: Shield, 
-    title: 'Calidad Garantizada', 
-    description: 'Estrictos controles de calidad y supervisión constante en cada etapa de tu estrategia BTL.' 
-  },
-  { 
-    icon: Zap, 
-    title: 'Flexibilidad Total', 
-    description: 'Nos adaptamos a tus necesidades y presupuesto, haciendo posibles hasta las ideas más descabelladas.' 
-  }
-];
+const reasonIconMap = {
+  briefcase: Briefcase,
+  'map-pin': MapPin,
+  clock: Clock,
+  users: Users,
+  shield: Shield,
+  zap: Zap,
+};
 
 const WhyChooseUsSection = () => {
   return (
@@ -50,18 +27,20 @@ const WhyChooseUsSection = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight text-balance">
-              Por qué elegirnos
+              {whyChooseUsSectionContent.title}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Nuestro compromiso con la excelencia y la innovación nos convierte en el aliado estratégico ideal para llevar tu marca al siguiente nivel.
+              {whyChooseUsSectionContent.description}
             </p>
           </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {reasons.map((reason, index) => (
-            <WhyChooseUsCard key={index} {...reason} index={index} />
-          ))}
+          {whyChooseUsSectionContent.reasons.map((reason, index) => {
+            const Icon = reasonIconMap[reason.iconKey];
+
+            return <WhyChooseUsCard key={index} icon={Icon} title={reason.title} description={reason.description} index={index} />;
+          })}
         </div>
 
         <motion.div 
@@ -73,7 +52,7 @@ const WhyChooseUsSection = () => {
         >
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg transition-all duration-200 active:scale-[0.98] shadow-lg shadow-primary/20">
             <Link to="/contacto">
-              Cotiza tu estrategia BTL ahora
+              {whyChooseUsSectionContent.ctaLabel}
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </Button>

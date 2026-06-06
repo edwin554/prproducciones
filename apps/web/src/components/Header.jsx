@@ -2,20 +2,11 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { navigationLinks, siteConfig } from '@/data/site';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-
-  const navLinks = [
-    { name: 'Inicio', path: '/' },
-    { name: 'Servicios', path: '/servicios' },
-    { name: 'Personal', path: '/personal' },
-    { name: 'Activación BTL', path: '/activacion-btl' },
-    { name: 'Eventos', path: '/eventos' },
-    { name: 'Nosotros', path: '/nosotros' },
-    { name: 'Contacto', path: '/contacto' },
-  ];
 
   const isActive = (path) => location.pathname === path;
 
@@ -27,18 +18,18 @@ const Header = () => {
             {/* Logo & Badge */}
             <div className="flex items-center space-x-4 flex-shrink-0">
               <Link to="/" className="flex items-center space-x-2">
-                <div className="text-2xl font-bold text-primary">PR</div>
-                <div className="text-xl font-semibold text-secondary hidden sm:block">PRODUCCIONES</div>
+                <div className="text-2xl font-bold text-primary">{siteConfig.brand.monogram}</div>
+                <div className="text-xl font-semibold text-secondary hidden sm:block">{siteConfig.brand.displayName}</div>
               </Link>
               <div className="hidden md:flex lg:hidden xl:flex items-center space-x-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase whitespace-nowrap">
                 <Clock className="w-3 h-3 mr-1" />
-                24/7 Disponibles
+                {siteConfig.availabilityLabel}
               </div>
             </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-1 flex-shrink-0">
-              {navLinks.map((link) => (
+              {navigationLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
@@ -55,9 +46,9 @@ const Header = () => {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center space-x-2 xl:space-x-4 flex-shrink-0">
-              <a href="tel:+573117318419" className="flex items-center space-x-1.5 xl:space-x-2 text-sm text-foreground hover:text-primary transition-colors duration-200 whitespace-nowrap">
+              <a href={siteConfig.phone.href} className="flex items-center space-x-1.5 xl:space-x-2 text-sm text-foreground hover:text-primary transition-colors duration-200 whitespace-nowrap">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span className="font-medium whitespace-nowrap">+57 311 731 8419</span>
+                <span className="font-medium whitespace-nowrap">{siteConfig.phone.display}</span>
               </a>
               <Button asChild className="bg-primary hover:bg-primary/90 flex-shrink-0">
                 <Link to="/contacto">Cotiza ahora</Link>
@@ -80,10 +71,10 @@ const Header = () => {
           <div className="lg:hidden border-t border-border bg-white">
             <div className="px-4 py-3 bg-primary/5 flex items-center justify-center text-primary text-sm font-bold uppercase tracking-wide">
               <Clock className="w-4 h-4 mr-2" />
-              24/7 Disponibles
+              {siteConfig.availabilityLabel}
             </div>
             <nav className="px-4 py-4 space-y-2">
-              {navLinks.map((link) => (
+              {navigationLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
@@ -99,11 +90,11 @@ const Header = () => {
               ))}
               <div className="pt-4 space-y-3">
                 <a
-                  href="tel:+573117318419"
+                  href={siteConfig.phone.href}
                   className="flex items-center justify-center space-x-2 px-4 py-3 rounded-lg bg-accent text-sm font-medium"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>+57 311 731 8419</span>
+                  <span>{siteConfig.phone.display}</span>
                 </a>
                 <Button asChild className="w-full bg-primary hover:bg-primary/90">
                   <Link to="/contacto" onClick={() => setMobileMenuOpen(false)}>
@@ -118,7 +109,7 @@ const Header = () => {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/573117318419"
+        href={siteConfig.phone.whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white p-4 rounded-full shadow-lg transition-all duration-200 hover:scale-110 active:scale-95"

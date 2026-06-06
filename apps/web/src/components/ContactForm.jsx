@@ -1,124 +1,173 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
 import { toast } from 'sonner';
 import pb from '@/lib/pocketbaseClient';
+import { contactPageContent } from '@/data/pages';
+
+const DEFAULT_VALUES = {
+  nombre: '',
+  email: '',
+  telefono: '',
+  mensaje: '',
+};
+
+const normalizeSingleLineText = (value) => value.trim().replace(/\s+/g, ' ');
+
+const normalizePhoneText = (value) => value.trim().replace(/\s+/g, ' ');
+
+const contactFormSchema = z.object({
+  nombre: z
+    .string()
+    .trim()
+    .min(3, 'Ingresa un nombre válido.')
+    .max(120, 'El nombre es demasiado largo.'),
+  email: z.string().trim().email('Ingresa un correo electrónico válido.'),
+  telefono: z
+    .string()
+    .trim()
+    .refine((value) => {
+      const digits = value.replace(/\D/g, '');
+      return digits.length >= 7 && digits.length <= 15;
+    }, 'Ingresa un número válido.'),
+  mensaje: z
+    .string()
+    .trim()
+    .min(10, 'Cuéntanos un poco más sobre tu solicitud.')
+    .max(1000, 'El mensaje es demasiado largo.'),
+});
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    nombre: '',
-    email: '',
-    telefono: '',
-    mensaje: '',
+  const form = useForm({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: DEFAULT_VALUES,
+    mode: 'onChange',
   });
-  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  const handleSubmit = async (values) => {
+    const payload = {
+      nombre: normalizeSingleLineText(values.nombre),
+      email: values.email.trim().toLowerCase(),
+      telefono: normalizePhoneText(values.telefono),
+      mensaje: values.mensaje.trim(),
+    };
 
     try {
-      await pb.collection('contacts').create(formData, { $autoCancel: false });
-      
-      toast.success('Mensaje enviado correctamente');
-      
-      setFormData({
-        nombre: '',
-        email: '',
-        telefono: '',
-        mensaje: '',
-      });
+      await pb.collection('contacts').create(payload, { $autoCancel: false });
+      toast.success(contactPageContent.form.successMessage);
+      form.reset(DEFAULT_VALUES);
     } catch (error) {
       console.error('Error sending message:', error);
-      toast.error('Error al enviar el mensaje. Por favor intenta de nuevo.');
-    } finally {
-      setLoading(false);
+      toast.error(contactPageContent.form.errorMessage);
     }
   };
 
   return (
-    <Card className="shadow-lg">
-      <CardHeader>
-        <CardTitle className="text-2xl font-semibold">Envíanos un mensaje</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="nombre">Nombre completo</Label>
-            <Input
-              id="nombre"
-              name="nombre"
-              type="text"
-              value={formData.nombre}
-              onChange={handleChange}
-              required
-              className="text-gray-900 placeholder:text-gray-400"
-              placeholder="Tu nombre"
-            />
-          </div>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6" noValidate>
+        <FormField
+          control={form.control}
+          name="nombre"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{contactPageContent.form.fields.nombre.label}</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  type="text"
+                  autoComplete="name"
+                  className="text-gray-900 placeholder:text-gray-400"
+                  placeholder={contactPageContent.form.fields.nombre.placeholder}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <div className="space-y-2">
-            <Label htmlFor="email">Correo electrónico</Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="text-gray-900 placeholder:text-gray-400"
-              placeholder="tu@email.com"
-            />
-          </div>
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{contactPageContent.form.fields.email.label}</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  type="email"
+                  autoComplete="email"
+                  className="text-gray-900 placeholder:text-gray-400"
+                  placeholder={contactPageContent.form.fields.email.placeholder}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <div className="space-y-2">
-            <Label htmlFor="telefono">Teléfono</Label>
-            <Input
-              id="telefono"
-              name="telefono"
-              type="tel"
-              value={formData.telefono}
-              onChange={handleChange}
-              required
-              className="text-gray-900 placeholder:text-gray-400"
-              placeholder="+57 311 731 8419"
-            />
-          </div>
+        <FormField
+          control={form.control}
+          name="telefono"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{contactPageContent.form.fields.telefono.label}</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  type="tel"
+                  autoComplete="tel"
+                  className="text-gray-900 placeholder:text-gray-400"
+                  placeholder={contactPageContent.form.fields.telefono.placeholder}
+                />
+              </FormControl>
+              <FormDescription>{contactPageContent.form.fields.telefono.description}</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <div className="space-y-2">
-            <Label htmlFor="mensaje">Mensaje</Label>
-            <Textarea
-              id="mensaje"
-              name="mensaje"
-              value={formData.mensaje}
-              onChange={handleChange}
-              required
-              rows={5}
-              className="text-gray-900 placeholder:text-gray-400"
-              placeholder="Cuéntanos sobre tu evento o proyecto..."
-            />
-          </div>
+        <FormField
+          control={form.control}
+          name="mensaje"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{contactPageContent.form.fields.mensaje.label}</FormLabel>
+              <FormControl>
+                <Textarea
+                  {...field}
+                  rows={5}
+                  className="text-gray-900 placeholder:text-gray-400"
+                  placeholder={contactPageContent.form.fields.mensaje.placeholder}
+                />
+              </FormControl>
+              <FormDescription>{contactPageContent.form.fields.mensaje.description}</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <Button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-primary hover:bg-primary/90 transition-all duration-200 active:scale-[0.98]"
-          >
-            {loading ? 'Enviando...' : 'Enviar mensaje'}
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+        <Button
+          type="submit"
+          disabled={!form.formState.isValid || form.formState.isSubmitting}
+          className="w-full bg-primary hover:bg-primary/90 transition-all duration-200 active:scale-[0.98]"
+        >
+          {form.formState.isSubmitting ? contactPageContent.form.submittingLabel : contactPageContent.form.submitLabel}
+        </Button>
+      </form>
+    </Form>
   );
 };
 
