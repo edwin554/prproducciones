@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://prproducciones.com/sitemap.xml

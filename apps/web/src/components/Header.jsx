@@ -1,18 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Clock } from 'lucide-react';
+import { Menu, X, Phone, Clock, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { navigationLinks, siteConfig } from '@/data/site';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 16;
+      setHasScrolled(scrolled);
+      setShowBackToTop(window.scrollY > 480);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const isActive = (path) => location.pathname === path;
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-border/80 bg-white/90 shadow-sm backdrop-blur-xl">
+      <header className={`sticky top-0 z-50 border-b bg-white/90 backdrop-blur-xl transition-all duration-300 ${hasScrolled ? 'border-border/80 shadow-lg shadow-black/10' : 'border-transparent shadow-sm'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo & Badge */}
@@ -106,6 +126,15 @@ const Header = () => {
           </div>
         )}
       </header>
+
+      <button
+        type="button"
+        onClick={scrollToTop}
+        className={`premium-button fixed right-6 z-50 rounded-full border border-white/10 p-3 text-white shadow-xl shadow-primary/25 transition-all duration-300 ${showBackToTop ? 'bottom-24 translate-y-0 opacity-100' : 'pointer-events-none bottom-20 translate-y-4 opacity-0'}`}
+        aria-label="Volver arriba"
+      >
+        <ChevronUp className="h-5 w-5" />
+      </button>
 
       {/* Floating WhatsApp Button */}
       <a

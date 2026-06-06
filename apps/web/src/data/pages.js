@@ -42,10 +42,11 @@ export const pageSeo = {
 export const homePageContent = {
   hero: {
     badge: siteConfig.availabilityLabel,
-    title: 'Producimos cualquier tipo de eventos en el territorio nacional',
-    description: 'El despliegue no es un inconveniente, todo el personal de nuestra agencia está disponible y listo para que hagas posible lo que tienes pensado.',
-    primaryCtaLabel: 'Cotiza tu evento ahora',
-    secondaryCtaLabel: 'Explorar servicios',
+    title: 'CREAMOS EXPERIENCIAS QUE TU MARCA NUNCA OLVIDARÁ',
+    description: 'Eventos corporativos, conciertos y activaciones BTL en toda Colombia',
+    metrics: ['+500 eventos producidos', '10 años de experiencia', 'Cobertura 32 departamentos'],
+    primaryCtaLabel: 'Cotizar mi evento',
+    secondaryCtaLabel: 'Ver portafolio',
     backgroundImage: 'https://images.unsplash.com/photo-1629276301226-63a884a68e4f',
     backgroundAlt: 'Producción profesional de eventos',
   },
@@ -73,8 +74,8 @@ export const homePageContent = {
     imageAlt: 'Equipo profesional de PR Producciones - Producción de eventos',
   },
   cta: {
-    title: 'AQUELLO QUE NO PUEDES DECIR, LO DECIMOS POR TI',
-    description: 'No te dejes confundir, es la mejor opción si quieres activar. Llama, cotiza, pregunta, no te quedes quieto. Estamos disponibles 24/7.',
+    title: '¿LISTO PARA CREAR ALGO INCREÍBLE?',
+    description: 'Cuéntanos sobre tu evento y te enviamos una propuesta en 24 horas',
     contactCtaLabel: 'Contáctanos ahora',
     callCtaLabel: 'Llamar ahora',
   },

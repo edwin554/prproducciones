@@ -48,23 +48,32 @@ const HomePage = () => {
               <span>{homePageContent.hero.badge}</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight tracking-tight text-balance">
+              <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] xl:text-[9rem] font-black text-white mb-8 leading-[0.95] tracking-tight text-balance max-w-6xl">
               {homePageContent.hero.title}
               </h1>
-              
-              <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed font-medium">
+               
+              <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed font-medium">
               {homePageContent.hero.description}
               </p>
-              
+
+              <div className="mb-10 flex flex-col items-center justify-center gap-3 text-sm font-bold uppercase tracking-[0.18em] text-white/80 md:flex-row md:flex-wrap md:gap-5">
+               {homePageContent.hero.metrics.map((metric, index) => (
+                 <React.Fragment key={metric}>
+                   {index > 0 ? <span className="hidden md:inline text-primary/70">|</span> : null}
+                   <span>{metric}</span>
+                 </React.Fragment>
+               ))}
+              </div>
+               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
                <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold text-white shadow-xl shadow-primary/20 active:scale-[0.98]">
-                  <Link to="/contacto">
+                 <Link to="/contacto">
                   {homePageContent.hero.primaryCtaLabel}
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
                <Button asChild size="lg" variant="outline" className="premium-outline-button border-2 px-10 py-7 text-lg font-bold active:scale-[0.98]">
-                <Link to="/servicios">{homePageContent.hero.secondaryCtaLabel}</Link>
+                <Link to="/eventos">{homePageContent.hero.secondaryCtaLabel}</Link>
                 </Button>
               </div>
             </motion.div>
