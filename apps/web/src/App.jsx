@@ -7,7 +7,7 @@ import ServicesPage from './pages/ServicesPage.jsx';
 import PersonalPage from './pages/PersonalPage.jsx';
 import ActivacionBTLPage from './pages/ActivacionBTLPage.jsx';
 import EventosPage from './pages/EventosPage.jsx';
-import PabloRozoPage from './pages/PabloRozoPage.jsx';
+import NosotrosPage from './pages/NosotrosPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 
 // Componente principal de la aplicación que gestiona las rutas del sitio web.
@@ -21,7 +21,7 @@ function App() {
         <Route path="/personal" element={<PersonalPage />} />
         <Route path="/activacion-btl" element={<ActivacionBTLPage />} />
         <Route path="/eventos" element={<EventosPage />} />
-        <Route path="/sobre-pablo" element={<PabloRozoPage />} />
+        <Route path="/nosotros" element={<NosotrosPage />} />
         <Route path="/contacto" element={<ContactPage />} />
       </Routes>
       <Toaster />
