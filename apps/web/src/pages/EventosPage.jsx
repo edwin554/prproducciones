@@ -25,8 +25,7 @@ const EventosPage = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="bg-secondary text-white py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+        <section className="dark dark-premium-section text-white py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div className="text-emphasis mb-4">{eventosPageContent.heroEyebrow}</div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight tracking-tight">
@@ -39,7 +38,7 @@ const EventosPage = () => {
         </section>
 
         {/* Formats Section */}
-        <section className="py-16 bg-primary text-white">
+        <section className="premium-surface py-16 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Layers className="w-12 h-12 mx-auto mb-6 text-white/90" />
             <h2 className="text-3xl md:text-4xl font-black mb-6 tracking-tight">

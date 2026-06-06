@@ -6,8 +6,9 @@ import { footerQuickLinks, siteConfig, socialLinks } from '@/data/site';
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="dark dark-premium-section text-white">
+      <div className="absolute left-[-8%] bottom-0 h-56 w-56 rounded-full bg-primary/20 blur-3xl opacity-70 mix-blend-screen pointer-events-none"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-6">
@@ -18,7 +19,7 @@ const Footer = () => {
             <p className="text-sm text-white/80 leading-relaxed">
               {siteConfig.footer.description}
             </p>
-            <div className="inline-flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg border border-white/20">
+            <div className="premium-panel inline-flex items-center space-x-2 px-4 py-2 rounded-lg">
               <Clock className="w-4 h-4 text-primary" />
               <span className="text-sm font-semibold">{siteConfig.footer.workdayLabel}</span>
             </div>
@@ -80,7 +81,7 @@ const Footer = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-white/5 hover:bg-primary transition-all duration-200 hover:-translate-y-1"
+                    className="premium-surface p-3 rounded-xl shadow-lg shadow-primary/10 transition-all duration-200 hover:-translate-y-1"
                     aria-label={link.label}
                   >
                     <Icon className="w-5 h-5" />

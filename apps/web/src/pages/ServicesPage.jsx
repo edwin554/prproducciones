@@ -35,8 +35,7 @@ const ServicesPage = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="bg-secondary text-white py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/5 mix-blend-overlay"></div>
+        <section className="dark dark-premium-section text-white py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div className="text-emphasis mb-4">{servicesPageContent.heroEyebrow}</div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight tracking-tight">
@@ -49,7 +48,7 @@ const ServicesPage = () => {
         </section>
 
         {/* Technical Equipment Highlight */}
-        <section className="py-12 bg-primary text-white">
+        <section className="premium-surface py-12 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{servicesPageContent.equipmentTitle}</h2>

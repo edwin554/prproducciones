@@ -17,11 +17,11 @@ html {
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 10%;
-    --primary: 348 83% 47%;
+    --primary: 348 90% 52%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 10%;
+    --secondary: 0 0% 7%;
     --secondary-foreground: 0 0% 100%;
-    --accent: 348 83% 47%;
+    --accent: 336 76% 42%;
     --accent-foreground: 0 0% 100%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 10%;
@@ -29,7 +29,7 @@ html {
     --muted-foreground: 0 0% 40%;
     --border: 0 0% 90%;
     --input: 0 0% 96%;
-    --ring: 348 83% 47%;
+    --ring: 348 90% 52%;
     --radius: 0.5rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -77,6 +77,43 @@ html {
   }
   .section-spacing {
     @apply py-20 md:py-24 lg:py-32;
+  }
+  .premium-surface {
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(336 79% 42%) 58%, hsl(0 0% 8%) 100%);
+  }
+  .premium-button {
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(336 79% 42%) 58%, hsl(0 0% 8%) 100%);
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 16px 40px hsl(var(--primary) / 0.24);
+  }
+  .premium-button:hover {
+    background-image: linear-gradient(135deg, hsl(348 92% 50%) 0%, hsl(336 79% 38%) 58%, hsl(0 0% 6%) 100%);
+  }
+  .premium-outline-button {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #fff;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 10px 24px rgba(0, 0, 0, 0.18);
+  }
+  .premium-outline-button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.32);
+    color: #fff;
+  }
+  .dark-premium-section {
+    @apply relative overflow-hidden;
+    isolation: isolate;
+    background-color: #111111;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(230, 0, 35, 0.18), transparent 24%),
+      radial-gradient(circle at 84% 12%, rgba(191, 38, 99, 0.14), transparent 22%),
+      linear-gradient(180deg, #131316 0%, #0b0b0e 100%);
+  }
+  .premium-panel {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(16px);
   }
 }
 

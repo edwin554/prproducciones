@@ -30,8 +30,7 @@ const NosotrosPage = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="py-24 bg-secondary text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/5 mix-blend-overlay"></div>
+        <section className="py-24 dark dark-premium-section text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -39,11 +38,14 @@ const NosotrosPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <img
-                  src={nosotrosPageContent.hero.image}
-                  alt={nosotrosPageContent.hero.imageAlt}
-                  className="w-full h-[600px] object-cover rounded-3xl shadow-2xl border-4 border-white/10"
-                />
+                <div className="relative">
+                  <div className="absolute -left-10 top-16 h-44 w-44 rounded-full bg-primary/25 blur-3xl opacity-80 mix-blend-screen pointer-events-none"></div>
+                  <img
+                    src={nosotrosPageContent.hero.image}
+                    alt={nosotrosPageContent.hero.imageAlt}
+                    className="relative w-full h-[600px] object-cover rounded-3xl shadow-2xl border-4 border-white/10"
+                  />
+                </div>
               </motion.div>
 
               <motion.div
@@ -51,7 +53,7 @@ const NosotrosPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="inline-flex items-center space-x-2 bg-primary text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase mb-6">
+                <div className="premium-surface inline-flex items-center space-x-2 rounded-full border border-white/10 px-4 py-1.5 text-sm font-bold tracking-widest uppercase mb-6 text-white">
                   <Clock className="w-4 h-4" />
                   <span>{nosotrosPageContent.hero.badge}</span>
                 </div>
@@ -64,7 +66,7 @@ const NosotrosPage = () => {
                 <p className="text-lg text-white/80 mb-8 leading-relaxed font-medium">
                   {nosotrosPageContent.hero.description}
                 </p>
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-7 text-lg font-bold transition-all duration-200 active:scale-[0.98] shadow-xl">
+                <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold text-white shadow-xl active:scale-[0.98]">
                   <Link to="/contacto">{nosotrosPageContent.hero.ctaLabel}</Link>
                 </Button>
               </motion.div>

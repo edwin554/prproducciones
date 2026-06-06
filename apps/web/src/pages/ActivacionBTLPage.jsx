@@ -29,6 +29,7 @@ const ActivacionBTLPage = () => {
               className="w-full h-full object-cover opacity-40"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/80 to-transparent"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,35,85,0.24),transparent_32%)] mix-blend-screen"></div>
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
@@ -37,7 +38,7 @@ const ActivacionBTLPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="text-primary font-black tracking-widest uppercase mb-6 text-lg md:text-xl">
+              <div className="premium-surface inline-flex rounded-full border border-white/10 px-5 py-2 text-sm font-black tracking-widest uppercase mb-6 text-white md:text-base">
                 {activacionBtlPageContent.hero.eyebrow}
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-8xl font-black text-white mb-8 leading-none tracking-tighter">
@@ -51,7 +52,7 @@ const ActivacionBTLPage = () => {
         </section>
 
         {/* Value Proposition Section */}
-        <section className="py-20 bg-primary text-white">
+        <section className="premium-surface py-20 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
@@ -63,12 +64,12 @@ const ActivacionBTLPage = () => {
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="bg-white/10 p-6 rounded-2xl border border-white/20">
+                <div className="premium-panel p-6 rounded-2xl">
                   <Target className="w-10 h-10 mb-4 text-white" />
                   <h3 className="text-xl font-bold mb-2">{activacionBtlPageContent.valueProposition.cards[0].title}</h3>
                   <p className="text-white/80">{activacionBtlPageContent.valueProposition.cards[0].description}</p>
                 </div>
-                <div className="bg-white/10 p-6 rounded-2xl border border-white/20">
+                <div className="premium-panel p-6 rounded-2xl">
                   <TrendingUp className="w-10 h-10 mb-4 text-white" />
                   <h3 className="text-xl font-bold mb-2">{activacionBtlPageContent.valueProposition.cards[1].title}</h3>
                   <p className="text-white/80">{activacionBtlPageContent.valueProposition.cards[1].description}</p>
@@ -123,7 +124,7 @@ const ActivacionBTLPage = () => {
               <p className="text-xl text-white/80 mb-10 leading-relaxed max-w-2xl mx-auto font-medium">
                 {activacionBtlPageContent.cta.description}
               </p>
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-7 text-lg font-bold transition-all duration-200 active:scale-[0.98] shadow-xl shadow-primary/20">
+              <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold text-white shadow-xl shadow-primary/20 active:scale-[0.98]">
                 <Link to="/contacto">
                   {activacionBtlPageContent.cta.label}
                   <ArrowRight className="ml-2 w-5 h-5" />

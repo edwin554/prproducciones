@@ -21,8 +21,7 @@ const ContactPage = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="bg-secondary text-white py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+        <section className="dark dark-premium-section text-white py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-black mb-8 leading-tight tracking-tighter">
               {contactPageContent.hero.title} <br/><span className="text-primary">{contactPageContent.hero.highlight}</span>
@@ -30,7 +29,7 @@ const ContactPage = () => {
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-medium">
               {contactPageContent.hero.description}
             </p>
-            <div className="mt-8 inline-flex items-center space-x-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-bold tracking-widest uppercase shadow-lg">
+            <div className="premium-surface mt-8 inline-flex items-center space-x-2 rounded-full border border-white/10 px-6 py-3 text-sm font-bold tracking-widest uppercase shadow-lg text-white">
               <Clock className="w-5 h-5" />
               <span>{contactPageContent.hero.badge}</span>
             </div>
@@ -115,7 +114,7 @@ const ContactPage = () => {
                 </div>
 
                 {/* Closing Phrase */}
-                <div className="bg-primary text-white rounded-2xl p-8 shadow-lg">
+                <div className="premium-surface text-white rounded-2xl p-8 shadow-lg">
                   <p className="text-xl font-bold leading-relaxed">
                     {contactPageContent.closingText}
                   </p>

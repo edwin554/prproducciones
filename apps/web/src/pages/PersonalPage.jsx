@@ -19,10 +19,9 @@ const PersonalPage = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="bg-secondary text-white py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+        <section className="dark dark-premium-section text-white py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div className="inline-flex items-center space-x-2 bg-primary text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase mb-6">
+            <div className="premium-surface inline-flex items-center space-x-2 rounded-full border border-white/10 px-4 py-1.5 text-sm font-bold tracking-widest uppercase mb-6 text-white">
               <Clock className="w-4 h-4" />
               <span>{personalPageContent.badge}</span>
             </div>

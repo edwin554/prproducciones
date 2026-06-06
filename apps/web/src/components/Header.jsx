@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
+      <header className="sticky top-0 z-50 border-b border-border/80 bg-white/90 shadow-sm backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo & Badge */}
@@ -21,7 +21,7 @@ const Header = () => {
                 <div className="text-2xl font-bold text-primary">{siteConfig.brand.monogram}</div>
                 <div className="text-xl font-semibold text-secondary hidden sm:block">{siteConfig.brand.displayName}</div>
               </Link>
-              <div className="hidden md:flex lg:hidden xl:flex items-center space-x-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase whitespace-nowrap">
+              <div className="premium-surface hidden md:flex lg:hidden xl:flex items-center space-x-1 rounded-full border border-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase whitespace-nowrap text-white">
                 <Clock className="w-3 h-3 mr-1" />
                 {siteConfig.availabilityLabel}
               </div>
@@ -35,7 +35,7 @@ const Header = () => {
                   to={link.path}
                   className={`px-1.5 xl:px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                     isActive(link.path)
-                      ? 'bg-primary text-white'
+                      ? 'premium-surface text-white shadow-lg shadow-primary/20'
                       : 'text-foreground hover:bg-accent hover:text-accent-foreground'
                   }`}
                 >
@@ -50,7 +50,7 @@ const Header = () => {
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <span className="font-medium whitespace-nowrap">{siteConfig.phone.display}</span>
               </a>
-              <Button asChild className="bg-primary hover:bg-primary/90 flex-shrink-0">
+              <Button asChild className="premium-button flex-shrink-0 border border-white/10 text-white">
                 <Link to="/contacto">Cotiza ahora</Link>
               </Button>
             </div>
@@ -69,7 +69,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-white">
-            <div className="px-4 py-3 bg-primary/5 flex items-center justify-center text-primary text-sm font-bold uppercase tracking-wide">
+            <div className="premium-surface px-4 py-3 flex items-center justify-center text-sm font-bold uppercase tracking-wide text-white">
               <Clock className="w-4 h-4 mr-2" />
               {siteConfig.availabilityLabel}
             </div>
@@ -81,7 +81,7 @@ const Header = () => {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive(link.path)
-                      ? 'bg-primary text-white'
+                      ? 'premium-surface text-white'
                       : 'text-foreground hover:bg-accent'
                   }`}
                 >
@@ -96,7 +96,7 @@ const Header = () => {
                   <Phone className="w-4 h-4" />
                   <span>{siteConfig.phone.display}</span>
                 </a>
-                <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                <Button asChild className="premium-button w-full border border-white/10 text-white">
                   <Link to="/contacto" onClick={() => setMobileMenuOpen(false)}>
                     Cotiza ahora
                   </Link>

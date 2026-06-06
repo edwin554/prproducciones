@@ -1,3 +1,5 @@
+const genericAvatar = '/generic-avatar.svg';
+
 export const technicalEquipment = ['TARIMA', 'SONIDO', 'LUCES', 'BACKLINE'];
 
 export const portfolioSectionContent = {
@@ -68,7 +70,7 @@ export const testimonialsSectionContent = {
       text: 'PR Producciones superó nuestras expectativas en el lanzamiento de nuestro producto. El equipo fue profesional, puntual y entregó exactamente lo que necesitábamos. Definitivamente volveremos a trabajar con ellos.',
       rating: 5,
       eventType: 'Lanzamiento de marca',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
+      avatar: genericAvatar,
     },
     {
       name: 'María González',
@@ -76,7 +78,7 @@ export const testimonialsSectionContent = {
       text: 'Nuestro matrimonio fue perfecto gracias a PR Producciones. Desde la coordinación hasta la ejecución, todo fue impecable. El sonido, las luces, la animación... ¡todo estuvo de 10!',
       rating: 5,
       eventType: 'Boda',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80',
+      avatar: genericAvatar,
     },
     {
       name: 'Carlos Rodríguez',
@@ -84,7 +86,7 @@ export const testimonialsSectionContent = {
       text: 'Activamos nuestra marca con PR Producciones y los resultados fueron inmediatos. Aumentamos nuestro flujo de clientes significativamente. Son profesionales que entienden el negocio.',
       rating: 5,
       eventType: 'Activación BTL',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
+      avatar: genericAvatar,
     },
     {
       name: 'Ana Pérez',
@@ -92,7 +94,7 @@ export const testimonialsSectionContent = {
       text: 'Trabajar con PR Producciones fue una experiencia excelente. Su disponibilidad 24/7 y flexibilidad nos permitió hacer cambios de último minuto sin problemas. Altamente recomendados.',
       rating: 5,
       eventType: 'Evento Corporativo',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+      avatar: genericAvatar,
     },
     {
       name: 'Roberto Sánchez',
@@ -100,7 +102,7 @@ export const testimonialsSectionContent = {
       text: 'Para nuestro concierto necesitábamos un equipo técnico de calidad y PR Producciones entregó exactamente eso. Sonido impecable, luces profesionales y un equipo que sabe lo que hace.',
       rating: 5,
       eventType: 'Concierto/Evento Musical',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
+      avatar: genericAvatar,
     },
     {
       name: 'Sofía López',
@@ -108,7 +110,7 @@ export const testimonialsSectionContent = {
       text: 'Nuestro evento de integración fue un éxito total. PR Producciones manejó todo con profesionalismo y creatividad. El equipo fue puntual, pulcro y con excelente presentación personal.',
       rating: 5,
       eventType: 'Evento de Integración',
-      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
+      avatar: genericAvatar,
     },
   ],
 };

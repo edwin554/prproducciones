@@ -5,8 +5,9 @@ import { testimonialsSectionContent } from '@/data/sections';
 
 const TestimonialsSection = () => {
   return (
-    <section className="section-spacing bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-spacing dark dark-premium-section">
+      <div className="absolute right-[-6%] top-24 h-64 w-64 rounded-full bg-primary/20 blur-3xl opacity-70 mix-blend-screen pointer-events-none"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

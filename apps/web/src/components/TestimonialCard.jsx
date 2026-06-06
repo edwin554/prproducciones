@@ -9,8 +9,9 @@ const TestimonialCard = ({ name, company, text, rating, eventType, avatar, index
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-card p-8 rounded-2xl shadow-sm border border-border hover:shadow-xl transition-all duration-300 flex flex-col h-full relative group"
+      className="premium-panel p-8 rounded-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative group overflow-hidden"
     >
+      <div className="absolute -left-10 top-6 h-28 w-28 rounded-full bg-primary/20 blur-3xl opacity-70 mix-blend-screen pointer-events-none"></div>
       <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" />
       
       <div className="flex items-center gap-1 mb-6">
@@ -26,11 +27,11 @@ const TestimonialCard = ({ name, company, text, rating, eventType, avatar, index
         "{text}"
       </p>
       
-      <div className="flex items-center gap-4 mt-auto pt-6 border-t border-border">
+      <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/10">
         <img
           src={avatar}
           alt={name}
-          className="w-14 h-14 rounded-full object-cover border-2 border-primary/20"
+          className="w-14 h-14 rounded-full object-cover border-2 border-primary/30 bg-white/10"
         />
         <div>
           <div className="font-bold text-foreground text-lg">{name}</div>
