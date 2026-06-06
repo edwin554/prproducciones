@@ -14,13 +14,18 @@ const TestimonialCard = ({ name, company, text, rating, eventType, avatar, index
       <div className="absolute -left-10 top-6 h-28 w-28 rounded-full bg-primary/20 blur-3xl opacity-70 mix-blend-screen pointer-events-none"></div>
       <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" />
       
-      <div className="flex items-center gap-1 mb-6">
-        {[...Array(5)].map((_, i) => (
-          <Star
-            key={i}
-            className={`w-5 h-5 ${i < rating ? 'fill-primary text-primary' : 'fill-muted text-muted-foreground'}`}
-          />
-        ))}
+      <div className="mb-6 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-1">
+          {[...Array(5)].map((_, i) => (
+            <Star
+              key={i}
+              className={`h-5 w-5 ${i < rating ? 'fill-primary text-primary' : 'fill-white/10 text-white/25'}`}
+            />
+          ))}
+        </div>
+        <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-white/75">
+          {rating}/5 estrellas
+        </div>
       </div>
       
       <p className="text-foreground/80 text-lg leading-relaxed mb-8 flex-grow font-medium italic">

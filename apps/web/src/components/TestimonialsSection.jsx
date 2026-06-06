@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import TestimonialCard from './TestimonialCard.jsx';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { testimonialsSectionContent } from '@/data/sections';
 
 const TestimonialsSection = () => {
@@ -25,20 +26,31 @@ const TestimonialsSection = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {testimonialsSectionContent.testimonials.map((testimonial, index) => (
-            <TestimonialCard
-              key={index}
-              index={index}
-              name={testimonial.name}
-              company={testimonial.company}
-              text={testimonial.text}
-              rating={testimonial.rating}
-              eventType={testimonial.eventType}
-              avatar={testimonial.avatar}
-            />
-          ))}
-        </div>
+        <Carousel
+          opts={{
+            align: 'start',
+            loop: true,
+          }}
+          className="mx-auto w-full max-w-6xl px-12"
+        >
+          <CarouselContent className="-ml-6">
+            {testimonialsSectionContent.testimonials.map((testimonial, index) => (
+              <CarouselItem key={index} className="pl-6 md:basis-1/2 lg:basis-1/3">
+                <TestimonialCard
+                  index={index}
+                  name={testimonial.name}
+                  company={testimonial.company}
+                  text={testimonial.text}
+                  rating={testimonial.rating}
+                  eventType={testimonial.eventType}
+                  avatar={testimonial.avatar}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="premium-outline-button left-0 h-11 w-11 border border-white/10 bg-white/5 text-white hover:bg-white/10 disabled:opacity-30" />
+          <CarouselNext className="premium-outline-button right-0 h-11 w-11 border border-white/10 bg-white/5 text-white hover:bg-white/10 disabled:opacity-30" />
+        </Carousel>
       </div>
     </section>
   );
