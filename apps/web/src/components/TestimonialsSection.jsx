@@ -31,7 +31,7 @@ const TestimonialsSection = () => {
             align: 'start',
             loop: true,
           }}
-          className="mx-auto w-full max-w-6xl px-12"
+          className="mx-auto w-full max-w-6xl px-4 sm:px-12"
         >
           <CarouselContent className="-ml-6">
             {testimonialsSectionContent.testimonials.map((testimonial, index) => (
@@ -48,8 +48,8 @@ const TestimonialsSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="premium-outline-button left-0 h-11 w-11 border border-white/10 bg-white/5 text-white hover:bg-white/10 disabled:opacity-30" />
-          <CarouselNext className="premium-outline-button right-0 h-11 w-11 border border-white/10 bg-white/5 text-white hover:bg-white/10 disabled:opacity-30" />
+          <CarouselPrevious className="hidden sm:inline-flex premium-outline-button left-0 h-11 w-11 border border-white/10 bg-white/5 text-white hover:bg-white/10 disabled:opacity-30" />
+          <CarouselNext className="hidden sm:inline-flex premium-outline-button right-0 h-11 w-11 border border-white/10 bg-white/5 text-white hover:bg-white/10 disabled:opacity-30" />
         </Carousel>
       </div>
     </section>

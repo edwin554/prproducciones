@@ -9,12 +9,12 @@ const TestimonialCard = ({ name, company, text, rating, eventType, avatar, index
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="premium-panel p-8 rounded-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative group overflow-hidden"
+      className="premium-panel p-6 sm:p-8 rounded-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative group overflow-hidden"
     >
       <div className="absolute -left-10 top-6 h-28 w-28 rounded-full bg-primary/20 blur-3xl opacity-70 mix-blend-screen pointer-events-none"></div>
       <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" />
       
-      <div className="mb-6 flex items-center justify-between gap-4">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-1">
           {[...Array(5)].map((_, i) => (
             <Star
@@ -23,7 +23,7 @@ const TestimonialCard = ({ name, company, text, rating, eventType, avatar, index
             />
           ))}
         </div>
-        <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-white/75">
+        <div className="w-fit rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-white/75">
           {rating}/5 estrellas
         </div>
       </div>
