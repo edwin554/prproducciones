@@ -70,8 +70,8 @@ export const homePageContent = {
     subtitle: 'Productora y agencia de eventos de alto impacto con cobertura a nivel nacional.',
     description: 'Nos especializamos en la planificación, logística integral y producción técnica de eventos corporativos, comerciales y artísticos. Con un equipo calificado y disponibilidad 24/7, garantizamos la ejecución perfecta de tu proyecto, asegurando que tu marca se destaque y conecte de manera real con el público en cualquier lugar del país.',
     ctaLabel: 'Explorar nuestros servicios',
-    image: 'https://horizons-cdn.hostinger.com/943339c9-a025-4dc8-80b9-9abf4b4de65f/e9f5269a10e3012c718edb10f6179249.png',
-    imageAlt: 'Equipo profesional de PR Producciones - Producción de eventos',
+    image: '/pr-producciones-team.jpg',
+    imageAlt: 'Equipo de PR Producciones - Activación de marca',
   },
   cta: {
     title: '¿LISTO PARA CREAR ALGO INCREÍBLE?',
