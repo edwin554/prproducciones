@@ -39,7 +39,7 @@ const Header = () => {
             <div className="flex flex-shrink-0 items-center gap-5 xl:gap-6">
               <Link to="/" className="flex items-center gap-2.5">
                 <div className="text-2xl font-bold text-primary">{siteConfig.brand.monogram}</div>
-                <div className="text-xl font-semibold text-secondary hidden sm:block">{siteConfig.brand.displayName}</div>
+                <div className="text-base sm:text-xl font-semibold text-secondary">{siteConfig.brand.displayName}</div>
               </Link>
               <div className="premium-surface hidden items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase whitespace-nowrap text-white md:flex lg:hidden xl:flex">
                 <Clock className="w-3 h-3 mr-1" />
