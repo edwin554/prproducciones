@@ -128,7 +128,7 @@ export const whyChooseUsSectionContent = {
     {
       iconKey: 'map-pin',
       title: 'Cobertura Nacional',
-      description: 'Llegamos a cualquier rincón de Colombia con la misma calidad, infraestructura y compromiso inquebrantable.',
+      description: 'Producción de eventos y activaciones BTL en Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Cartagena y en los 32 departamentos de Colombia.',
     },
     {
       iconKey: 'clock',

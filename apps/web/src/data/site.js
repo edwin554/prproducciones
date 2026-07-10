@@ -25,12 +25,12 @@ export const siteConfig = {
     display: 'pabloemiliorozo85@gmail.com',
     href: 'mailto:pabloemiliorozo85@gmail.com',
   },
-  coverage: 'Todo el territorio nacional',
+  coverage: 'Bogotá, Medellín, Cali, Barranquilla y los 32 departamentos de Colombia',
   footer: {
-    description: 'Coordinamos toda la logística, activación comercial y manejo de seguridad de tus eventos en todo el territorio colombiano.',
+    description: 'Coordinamos toda la logística, activación comercial y manejo de seguridad de tus eventos en Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Cartagena y en los 32 departamentos de Colombia.',
     workdayLabel: 'Trabajamos las 24 horas',
     tagline: 'AQUELLO QUE NO PUEDES DECIR, LO DECIMOS POR TI',
-    closingText: 'Comunicamos de manera eficiente todo lo relacionado con tu negocio. No te dejes confundir, es la mejor opción si quieres activar. Llama, cotiza, pregunta, no te quedes quieto.',
+    closingText: 'Comunicamos de manera eficiente la esencia de tu negocio. Somos el aliado estratégico que tu marca necesita para destacar. ¡Contáctanos hoy y cotiza tu próximo gran evento!'
   },
 };
 

@@ -3,33 +3,33 @@ import { technicalEquipment } from '@/data/sections';
 
 export const pageSeo = {
   home: {
-    title: 'PR Producciones | Producción de Eventos y Activación BTL en Colombia',
-    description: 'Agencia de producción de eventos y activación de marca BTL en Colombia. Logística integral, seguridad para eventos, alquiler de sonido, luces y shows. Disponible 24/7.',
+    title: 'PR Producciones | Producción de Eventos en Bogotá, Medellín, Cali y toda Colombia',
+    description: 'Agencia de producción de eventos y activación de marca BTL en Bogotá, Medellín, Cali, Barranquilla y los 32 departamentos de Colombia. Logística integral, seguridad, sonido, luces y shows. 24/7.',
     canonicalUrl: getCanonicalUrl('/'),
   },
   services: {
-    title: 'Servicios de Producción y Logística de Eventos | PR Producciones',
-    description: 'Alquiler de sonido y luces, pirotecnia, perifoneo, tarimas, agrupaciones musicales en vivo y personal de seguridad para eventos corporativos y sociales en Colombia.',
+    title: 'Servicios de Producción y Logística de Eventos en Bogotá, Medellín, Cali | PR Producciones',
+    description: 'Alquiler de sonido y luces, pirotecnia, perifoneo, tarimas, agrupaciones musicales en vivo y personal de seguridad para eventos en Bogotá, Medellín, Cali, Barranquilla y toda Colombia.',
     canonicalUrl: getCanonicalUrl('/servicios'),
   },
   personal: {
-    title: 'Personal de Protocolo, Logística y Seguridad | PR Producciones',
-    description: 'Contratación de personal calificado para eventos: modelos de protocolo (A, AA, AAA), personal logístico, vigilantes privados, recreadores, DJs y meseros en Colombia.',
+    title: 'Personal de Protocolo, Logística y Seguridad para Eventos | PR Producciones',
+    description: 'Contratación de personal calificado para eventos en Bogotá, Medellín, Cali, Barranquilla y Colombia: modelos de protocolo, personal logístico, vigilantes, recreadores, DJs y meseros.',
     canonicalUrl: getCanonicalUrl('/personal'),
   },
   activacionBtl: {
-    title: 'Activación de Marca y BTL en Colombia | PR Producciones',
-    description: 'Potencia tus ventas y flujo de caja con nuestras estrategias de activación comercial BTL. Personal calificado, volanteros, zanqueros y carros valla.',
+    title: 'Activación de Marca y BTL en Bogotá, Medellín, Cali y Colombia | PR Producciones',
+    description: 'Potencia tus ventas con estrategias de activación comercial BTL en Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Cartagena y toda Colombia. Personal calificado, volanteros, zanqueros.',
     canonicalUrl: getCanonicalUrl('/activacion-btl'),
   },
   eventos: {
-    title: 'Organización de Eventos Sociales y Empresariales | PR Producciones',
-    description: 'Productora de eventos de gran y pequeño formato en Colombia: corporativos, bodas, fiestas patronales y congresos. Equipamiento técnico completo.',
+    title: 'Organización de Eventos Sociales y Empresariales en Colombia | PR Producciones',
+    description: 'Productora de eventos en Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Cartagena y los 32 departamentos: corporativos, bodas, fiestas patronales y congresos. Gran y pequeño formato.',
     canonicalUrl: getCanonicalUrl('/eventos'),
   },
   nosotros: {
-    title: 'Nosotros | PR Producciones - Productora de Eventos en Colombia',
-    description: 'Conoce la trayectoria de PR Producciones. Líderes en logística integral, producción técnica de eventos y seguridad para activaciones comerciales en todo el país.',
+    title: 'Nosotros | PR Producciones - Productora de Eventos en Bogotá y toda Colombia',
+    description: 'Conoce la trayectoria de PR Producciones. Líderes en logística integral, producción técnica de eventos y seguridad en Bogotá, Medellín, Cali, Barranquilla y los 32 departamentos de Colombia.',
     canonicalUrl: getCanonicalUrl('/nosotros'),
   },
   contacto: {
@@ -53,7 +53,7 @@ export const homePageContent = {
   highlights: [
     {
       title: 'Cobertura Nacional',
-      description: 'Llegamos a cualquier rincón de Colombia con la misma calidad.',
+      description: 'Producción de eventos en Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Cartagena y en los 32 departamentos de Colombia.',
     },
     {
       title: 'Soporte 24/7',
@@ -68,7 +68,7 @@ export const homePageContent = {
     eyebrow: 'Experiencia y Compromiso',
     title: 'PR Producciones',
     subtitle: 'Productora y agencia de eventos de alto impacto con cobertura a nivel nacional.',
-    description: 'Nos especializamos en la planificación, logística integral y producción técnica de eventos corporativos, comerciales y artísticos. Con un equipo calificado y disponibilidad 24/7, garantizamos la ejecución perfecta de tu proyecto, asegurando que tu marca se destaque y conecte de manera real con el público en cualquier lugar del país.',
+    description: 'Nos especializamos en la planificación, logística integral y producción técnica de eventos corporativos, comerciales y artísticos en Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Cartagena y en toda Colombia. Con un equipo calificado y disponibilidad 24/7, garantizamos la ejecución perfecta de tu proyecto, asegurando que tu marca se destaque y conecte de manera real con el público en cualquier lugar del país.',
     ctaLabel: 'Explorar nuestros servicios',
     image: '/pr-producciones-team.jpg',
     imageAlt: 'Equipo de PR Producciones - Activación de marca',
@@ -111,7 +111,7 @@ export const personalPageContent = {
   title: 'Nuestro personal',
   description: 'Profesionales altamente calificados en todas las áreas para garantizar el éxito de tu evento. Todo el personal de nuestra agencia está disponible y listo.',
   summaryItems: [
-    'Cobertura nacional para eventos corporativos, sociales y activaciones BTL.',
+    'Cobertura nacional: eventos corporativos, sociales y activaciones BTL en Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Cartagena y más.',
     'Equipo disponible 24/7 con excelente presentación y actitud de servicio.',
     'Perfiles seleccionados para logística, protocolo, seguridad y atención al público.',
   ],
@@ -251,7 +251,7 @@ export const nosotrosPageContent = {
   },
   pillars: {
     title: 'Experiencia y capacidades',
-    description: 'Soluciones integrales con cobertura en todo el país',
+    description: 'Soluciones integrales con presencia en Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Cartagena y los 32 departamentos del país',
     items: [
       { iconKey: 'users', title: 'Logística Integral', description: 'Planificación minuciosa y coordinación operativa de eventos de cualquier escala.' },
       { iconKey: 'shield', title: 'Seguridad Comercial', description: 'Coordinación de vigilancia, control de accesos y escoltas profesionales.' },
@@ -310,5 +310,5 @@ export const contactPageContent = {
     coverageLabel: 'Cobertura',
   },
   socialTitle: 'Síguenos en redes',
-  closingText: 'No te dejes confundir, es la mejor opción si quieres activar. Llama, cotiza, pregunta, no te quedes quieto.',
+  closingText: 'Comunicamos de manera eficiente la esencia de tu negocio. Somos el aliado estratégico que tu marca necesita para destacar. ¡Contáctanos hoy y cotiza tu próximo gran evento!',
 };
