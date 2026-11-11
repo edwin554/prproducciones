@@ -1,4 +1,4 @@
-const siteBaseUrl = (import.meta.env.VITE_SITE_URL ?? 'https://prproducciones.com').replace(/\/$/, '');
+const siteBaseUrl = (import.meta.env.VITE_SITE_URL ?? 'https://prproduccionesbtl.com').replace(/\/$/, '');
 
 export const getCanonicalUrl = (path = '/') => {
   if (path === '/') {

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://prproducciones.com/sitemap.xml
+Sitemap: https://prproduccionesbtl.com/sitemap.xml

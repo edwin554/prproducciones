@@ -64,8 +64,8 @@ if (is_file($lockFile) && (time() - filemtime($lockFile)) < 30) {
 }
 @touch($lockFile);
 
-$host = preg_replace('/^www\./', '', strtolower($_SERVER['HTTP_HOST'] ?? 'prproducciones.com'));
-$host = preg_replace('/[^a-z0-9.-]/', '', $host) ?: 'prproducciones.com';
+$host = preg_replace('/^www\./', '', strtolower($_SERVER['HTTP_HOST'] ?? 'prproduccionesbtl.com'));
+$host = preg_replace('/[^a-z0-9.-]/', '', $host) ?: 'prproduccionesbtl.com';
 $from = 'no-reply@' . $host;
 
 $subject = '=?UTF-8?B?' . base64_encode(SUBJECT_PREFIX . ': ' . $nombre) . '?=';
