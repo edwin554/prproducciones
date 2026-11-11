@@ -281,7 +281,8 @@ export const contactPageContent = {
     submitLabel: 'Enviar mensaje',
     submittingLabel: 'Enviando...',
     successMessage: 'Mensaje enviado correctamente',
-    errorMessage: 'Error al enviar el mensaje. Por favor intenta de nuevo.',
+    errorMessage: 'No pudimos enviar tu mensaje. Escríbenos por WhatsApp y te respondemos de inmediato.',
+    whatsappFallbackLabel: 'Enviar por WhatsApp',
     fields: {
       nombre: {
         label: 'Nombre completo',

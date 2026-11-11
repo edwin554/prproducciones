@@ -15,8 +15,19 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { toast } from 'sonner';
-import pb from '@/lib/pocketbaseClient';
 import { contactPageContent } from '@/data/pages';
+import { siteConfig } from '@/data/site';
+
+const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT ?? '/api/contact.php';
+
+const buildWhatsAppUrl = ({ nombre, email, telefono, mensaje }) => {
+  const text = `Hola, soy ${nombre}.
+${mensaje}
+
+Correo: ${email}
+Teléfono: ${telefono}`;
+  return `${siteConfig.phone.whatsappHref}?text=${encodeURIComponent(text)}`;
+};
 
 const DEFAULT_VALUES = {
   nombre: '',
@@ -57,6 +68,8 @@ const ContactForm = () => {
     mode: 'onChange',
   });
 
+  const [honeypot, setHoneypot] = React.useState('');
+
   const handleSubmit = async (values) => {
     const payload = {
       nombre: normalizeSingleLineText(values.nombre),
@@ -66,18 +79,49 @@ const ContactForm = () => {
     };
 
     try {
-      await pb.collection('contacts').create(payload, { $autoCancel: false });
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...payload, empresa_web: honeypot }),
+      });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result?.ok) {
+        throw new Error(result?.error ?? `HTTP ${response.status}`);
+      }
+
       toast.success(contactPageContent.form.successMessage);
       form.reset(DEFAULT_VALUES);
     } catch (error) {
       console.error('Error sending message:', error);
-      toast.error(contactPageContent.form.errorMessage);
+      const whatsappUrl = buildWhatsAppUrl(payload);
+      toast.error(contactPageContent.form.errorMessage, {
+        duration: 15000,
+        action: {
+          label: contactPageContent.form.whatsappFallbackLabel,
+          onClick: () => window.open(whatsappUrl, '_blank', 'noopener,noreferrer'),
+        },
+      });
     }
   };
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6" noValidate>
+        {/* Campo trampa anti-spam: oculto para personas, los bots suelen llenarlo. */}
+        <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+          <label htmlFor="empresa_web">Empresa</label>
+          <input
+            id="empresa_web"
+            name="empresa_web"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(event) => setHoneypot(event.target.value)}
+          />
+        </div>
+
         <FormField
           control={form.control}
           name="nombre"
