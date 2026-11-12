@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Clock, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { contactPhones, navigationLinks, siteConfig } from '@/data/site';
+import { buildWhatsAppLink, contactPhones, navigationLinks, siteConfig } from '@/data/site';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -151,7 +151,7 @@ const Header = () => {
 
       {/* Floating WhatsApp Button */}
       <a
-        href={siteConfig.phone.whatsappHref}
+        href={buildWhatsAppLink()}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white p-4 rounded-full shadow-lg transition-all duration-200 hover:scale-110 active:scale-95"

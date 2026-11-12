@@ -37,6 +37,7 @@ export const siteConfig = {
     display: '+57 311 731 8419',
     href: 'tel:+573117318419',
     whatsappHref: 'https://wa.me/573117318419',
+    whatsappMessage: 'Hola, vi su página web y quiero cotizar un evento.',
     placeholder: '+57 311 731 8419',
   },
   secondaryPhone: {
@@ -59,6 +60,10 @@ export const siteConfig = {
     closingText: 'Comunicamos de manera eficiente la esencia de tu negocio. Somos el aliado estratégico que tu marca necesita para destacar. ¡Contáctanos hoy y cotiza tu próximo gran evento!'
   },
 };
+
+// Enlace de WhatsApp con un mensaje ya escrito (la gente escribe más si no empieza en blanco).
+export const buildWhatsAppLink = (text = siteConfig.phone.whatsappMessage) =>
+  `${siteConfig.phone.whatsappHref}?text=${encodeURIComponent(text)}`;
 
 // Todos los teléfonos de contacto, el principal primero.
 export const contactPhones = [siteConfig.phone, siteConfig.secondaryPhone];

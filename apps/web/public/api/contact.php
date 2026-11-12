@@ -1,7 +1,8 @@
 <?php
 /**
  * Endpoint del formulario de contacto.
- * Recibe JSON { nombre, email, telefono, mensaje, empresa_web }, guarda el mensaje
+ * Recibe JSON { nombre, email, telefono, tipoEvento, ciudad, fecha, asistentes, mensaje,
+ * empresa_web }, guarda el mensaje
  * en data/mensajes.log.php y envía un aviso por correo: por SMTP autenticado si
  * config.php trae credenciales, o con mail() del hosting como respaldo.
  * `empresa_web` es un campo trampa anti-spam.
@@ -46,14 +47,23 @@ $nombre   = preg_replace('/\s+/', ' ', $clean($data['nombre'] ?? '', 120));
 $email    = strtolower($clean($data['email'] ?? '', 254));
 $telefono = preg_replace('/\s+/', ' ', $clean($data['telefono'] ?? '', 40));
 $mensaje  = $clean($data['mensaje'] ?? '', 1000);
+$tipoEvento  = preg_replace('/\s+/', ' ', $clean($data['tipoEvento'] ?? '', 80));
+$ciudad      = preg_replace('/\s+/', ' ', $clean($data['ciudad'] ?? '', 80));
+$asistentes  = preg_replace('/\s+/', ' ', $clean($data['asistentes'] ?? '', 40));
+$fechaEvento = $clean($data['fecha'] ?? '', 10);
+if ($fechaEvento !== '' && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $fechaEvento)) {
+    $fechaEvento = '';
+}
 
 $digits = preg_replace('/\D/', '', $telefono);
+// Formulario actual: tipo de evento + ciudad. (Compatibilidad: versión anterior con solo mensaje.)
+$detalleOk = ($tipoEvento !== '' && mb_strlen($ciudad) >= 2) || mb_strlen($mensaje) >= 10;
 if (
     mb_strlen($nombre) < 3 ||
     !filter_var($email, FILTER_VALIDATE_EMAIL) ||
     strlen($digits) < 7 || strlen($digits) > 15 ||
-    mb_strlen($mensaje) < 10 ||
-    preg_match('/[\n]/', $nombre . $email . $telefono)
+    !$detalleOk ||
+    preg_match('/[\n]/', $nombre . $email . $telefono . $tipoEvento . $ciudad . $asistentes)
 ) {
     respond(422, ['ok' => false, 'error' => 'Datos inválidos.']);
 }
@@ -77,19 +87,27 @@ if (!is_file($leadsFile)) {
     @file_put_contents($leadsFile, "<?php exit; ?>\n", LOCK_EX);
 }
 $lead = json_encode(
-    ['fecha' => $fecha, 'nombre' => $nombre, 'email' => $email, 'telefono' => $telefono, 'mensaje' => $mensaje, 'ip' => $ip],
+    [
+        'fecha' => $fecha, 'nombre' => $nombre, 'email' => $email, 'telefono' => $telefono,
+        'tipoEvento' => $tipoEvento, 'ciudad' => $ciudad, 'fechaEvento' => $fechaEvento,
+        'asistentes' => $asistentes, 'mensaje' => $mensaje, 'ip' => $ip,
+    ],
     JSON_UNESCAPED_UNICODE
 );
 $saved = @file_put_contents($leadsFile, $lead . "\n", FILE_APPEND | LOCK_EX) !== false;
 
 // 2) Enviar el aviso por correo.
-$subject = SUBJECT_PREFIX . ': ' . $nombre;
-$body = "Nuevo mensaje desde el formulario de contacto\n\n"
-    . "Nombre:   {$nombre}\n"
-    . "Correo:   {$email}\n"
-    . "Teléfono: {$telefono}\n"
-    . "Fecha:    {$fecha}\n\n"
-    . "Mensaje:\n{$mensaje}\n";
+$subject = SUBJECT_PREFIX . ': ' . ($tipoEvento !== '' ? "{$tipoEvento} en {$ciudad} - " : '') . $nombre;
+$body = "Nueva solicitud de cotización desde la web\n\n"
+    . "Nombre:          {$nombre}\n"
+    . "Correo:          {$email}\n"
+    . "Teléfono:        {$telefono}\n\n"
+    . "Tipo de evento:  " . ($tipoEvento ?: '-') . "\n"
+    . "Ciudad:          " . ($ciudad ?: '-') . "\n"
+    . "Fecha evento:    " . ($fechaEvento ?: 'Sin definir') . "\n"
+    . "Asistentes:      " . ($asistentes ?: 'Sin definir') . "\n\n"
+    . "Detalles:\n" . ($mensaje ?: '(sin detalles)') . "\n\n"
+    . "Recibido: {$fecha}\n";
 
 // config.php lo genera el despliegue a partir de los secretos SMTP_* de GitHub.
 $config = is_file(__DIR__ . '/config.php') ? (require __DIR__ . '/config.php') : [];

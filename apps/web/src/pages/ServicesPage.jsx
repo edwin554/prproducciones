@@ -1,7 +1,8 @@
 import React from 'react';
 import Seo from '@/components/Seo.jsx';
-import { Mic, Volume2, Shield, Car, Users, Wrench, Music, Lightbulb, Sparkles, Calendar, Drumstick as Drum, Music as Guitar, Drumstick as Violin, Megaphone, CheckCircle2 } from 'lucide-react';
+import { Mic, Volume2, Shield, Car, Users, Wrench, Music, Speaker, Lightbulb, Sparkles, Calendar, Drum, Guitar, CheckCircle2, MessageCircle } from 'lucide-react';
 import { pageSeo, servicesPageContent } from '@/data/pages';
+import { buildWhatsAppLink } from '@/data/site';
 
 const serviceIconMap = {
   mic: Mic,
@@ -14,10 +15,9 @@ const serviceIconMap = {
   lightbulb: Lightbulb,
   sparkles: Sparkles,
   calendar: Calendar,
+  speaker: Speaker,
   drum: Drum,
   guitar: Guitar,
-  violin: Violin,
-  megaphone: Megaphone,
 };
 
 const ServicesPage = () => {
@@ -65,12 +65,22 @@ const ServicesPage = () => {
                 const Icon = serviceIconMap[service.iconKey];
 
                 return (
-                  <div key={index} className="bg-card rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-border group">
+                  <div key={index} className="flex flex-col bg-card rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-border group">
                     <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:-translate-y-1" style={{ backgroundColor: `${service.color}15` }}>
                       <Icon className="w-7 h-7" style={{ color: service.color }} />
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-3 tracking-tight">{service.name}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                    <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
+                    <a
+                      href={buildWhatsAppLink(`Hola, vi su página web y quiero cotizar el servicio de ${service.name}.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-track-location="servicio"
+                      className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline underline-offset-4"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      {servicesPageContent.quoteServiceLabel}
+                    </a>
                   </div>
                 );
               })}

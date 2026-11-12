@@ -16,24 +16,42 @@ import {
 } from '@/components/ui/form';
 import { toast } from 'sonner';
 import { contactPageContent } from '@/data/pages';
-import { siteConfig } from '@/data/site';
+import { buildWhatsAppLink } from '@/data/site';
 import { trackEvent } from '@/lib/analytics';
 
 const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT ?? '/api/contact.php';
 
-const buildWhatsAppUrl = ({ nombre, email, telefono, mensaje }) => {
-  const text = `Hola, soy ${nombre}.
-${mensaje}
+const buildWhatsAppUrl = ({ nombre, email, telefono, tipoEvento, ciudad, fecha, asistentes, mensaje }) => {
+  const lines = [
+    `Hola, soy ${nombre}. Quiero cotizar: ${tipoEvento} en ${ciudad}.`,
+    fecha ? `Fecha: ${fecha}` : null,
+    asistentes ? `Asistentes: ${asistentes}` : null,
+    mensaje || null,
+    '',
+    `Correo: ${email}`,
+    `Teléfono: ${telefono}`,
+  ].filter((line) => line !== null);
+  return buildWhatsAppLink(lines.join('\n'));
+};
 
-Correo: ${email}
-Teléfono: ${telefono}`;
-  return `${siteConfig.phone.whatsappHref}?text=${encodeURIComponent(text)}`;
+const fields = contactPageContent.form.fields;
+const selectClassName =
+  'flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base text-gray-900 shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring md:text-sm';
+
+// Fecha de hoy (AAAA-MM-DD, hora local) para no permitir fechas pasadas.
+const todayIso = () => {
+  const now = new Date();
+  return new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
 };
 
 const DEFAULT_VALUES = {
   nombre: '',
   email: '',
   telefono: '',
+  tipoEvento: '',
+  ciudad: '',
+  fecha: '',
+  asistentes: '',
   mensaje: '',
 };
 
@@ -55,11 +73,11 @@ const contactFormSchema = z.object({
       const digits = value.replace(/\D/g, '');
       return digits.length >= 7 && digits.length <= 15;
     }, 'Ingresa un número válido.'),
-  mensaje: z
-    .string()
-    .trim()
-    .min(10, 'Cuéntanos un poco más sobre tu solicitud.')
-    .max(1000, 'El mensaje es demasiado largo.'),
+  tipoEvento: z.string().min(1, 'Elige el tipo de evento.'),
+  ciudad: z.string().trim().min(2, 'Indica la ciudad.').max(80, 'Nombre de ciudad demasiado largo.'),
+  fecha: z.string(),
+  asistentes: z.string(),
+  mensaje: z.string().trim().max(1000, 'El mensaje es demasiado largo.'),
 });
 
 const ContactForm = () => {
@@ -70,12 +88,19 @@ const ContactForm = () => {
   });
 
   const [honeypot, setHoneypot] = React.useState('');
+  // Se calcula en el navegador: el HTML pre-renderizado no debe llevar la fecha del build.
+  const [minDate, setMinDate] = React.useState(undefined);
+  React.useEffect(() => setMinDate(todayIso()), []);
 
   const handleSubmit = async (values) => {
     const payload = {
       nombre: normalizeSingleLineText(values.nombre),
       email: values.email.trim().toLowerCase(),
       telefono: normalizePhoneText(values.telefono),
+      tipoEvento: values.tipoEvento,
+      ciudad: normalizeSingleLineText(values.ciudad),
+      fecha: values.fecha,
+      asistentes: values.asistentes,
       mensaje: values.mensaje.trim(),
     };
 
@@ -91,7 +116,7 @@ const ContactForm = () => {
         throw new Error(result?.error ?? `HTTP ${response.status}`);
       }
 
-      trackEvent('generate_lead', { form_name: 'contacto' });
+      trackEvent('generate_lead', { form_name: 'contacto', event_type: payload.tipoEvento });
       toast.success(contactPageContent.form.successMessage);
       form.reset(DEFAULT_VALUES);
     } catch (error) {
@@ -188,6 +213,87 @@ const ContactForm = () => {
           )}
         />
 
+        <div className="grid gap-6 sm:grid-cols-2">
+          <FormField
+            control={form.control}
+            name="tipoEvento"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{fields.tipoEvento.label}</FormLabel>
+                <FormControl>
+                  <select {...field} className={selectClassName}>
+                    <option value="" disabled>
+                      {fields.tipoEvento.placeholder}
+                    </option>
+                    {fields.tipoEvento.options.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="ciudad"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{fields.ciudad.label}</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    type="text"
+                    autoComplete="address-level2"
+                    className="text-gray-900 placeholder:text-gray-400"
+                    placeholder={fields.ciudad.placeholder}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="fecha"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{fields.fecha.label}</FormLabel>
+                <FormControl>
+                  <Input {...field} type="date" min={minDate} className="text-gray-900" />
+                </FormControl>
+                <FormDescription>{fields.fecha.description}</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="asistentes"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{fields.asistentes.label}</FormLabel>
+                <FormControl>
+                  <select {...field} className={selectClassName}>
+                    <option value="">{fields.asistentes.placeholder}</option>
+                    {fields.asistentes.options.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
         <FormField
           control={form.control}
           name="mensaje"
@@ -197,12 +303,11 @@ const ContactForm = () => {
               <FormControl>
                 <Textarea
                   {...field}
-                  rows={5}
+                  rows={4}
                   className="text-gray-900 placeholder:text-gray-400"
                   placeholder={contactPageContent.form.fields.mensaje.placeholder}
                 />
               </FormControl>
-              <FormDescription>{contactPageContent.form.fields.mensaje.description}</FormDescription>
               <FormMessage />
             </FormItem>
           )}
