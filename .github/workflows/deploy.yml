@@ -17,22 +17,49 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - name: Install Monorepo Dependencies
         run: npm install
 
+      - name: Lint
+        run: npm run lint
+
       - name: Build Web Application
         run: npm run build
 
-      - name: Deploy via FTP to Hostinger
+      # Genera api/config.php con las credenciales SMTP del buzón del dominio.
+      # Si los secretos no existen, no se crea y contact.php usa mail() como respaldo.
+      - name: Write SMTP config
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+        run: |
+          if [ -z "$SMTP_USER" ] || [ -z "$SMTP_PASS" ]; then
+            echo "Sin secretos SMTP: el formulario usará mail() del hosting."
+            exit 0
+          fi
+          json=$(jq -n \
+            --arg host "${SMTP_HOST:-smtp.hostinger.com}" \
+            --arg port "${SMTP_PORT:-465}" \
+            --arg user "$SMTP_USER" \
+            --arg pass "$SMTP_PASS" \
+            '{smtp: {host: $host, port: ($port | tonumber), user: $user, pass: $pass}}')
+          encoded=$(printf '%s' "$json" | base64 -w0)
+          printf "<?php\nreturn json_decode(base64_decode('%s'), true);\n" "$encoded" > dist/apps/web/api/config.php
+          echo "config.php generado para $SMTP_USER"
+
+      - name: Deploy via FTPS to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_HOST }}           # ← Cambiado de FTP_SERVER a FTP_HOST
+          server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: 21                                   # ← Si falla, prueba cambiar a 22 para SFTP
+          protocol: ftps                             # FTP cifrado con TLS: la contraseña ya no viaja en texto plano
+          port: 21
           local-dir: ./dist/apps/web/
           server-dir: ./
           state-name: .ftp-deploy-sync-state.json

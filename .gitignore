@@ -35,3 +35,6 @@ apps/pocketbase/pocketbase.zip
 *.sw?
 .DS_Store
 Thumbs.db
+
+# Credenciales SMTP generadas en el despliegue
+apps/web/public/api/config.php
