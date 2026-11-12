@@ -17,6 +17,7 @@ import {
 import { toast } from 'sonner';
 import { contactPageContent } from '@/data/pages';
 import { siteConfig } from '@/data/site';
+import { trackEvent } from '@/lib/analytics';
 
 const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT ?? '/api/contact.php';
 
@@ -90,6 +91,7 @@ const ContactForm = () => {
         throw new Error(result?.error ?? `HTTP ${response.status}`);
       }
 
+      trackEvent('generate_lead', { form_name: 'contacto' });
       toast.success(contactPageContent.form.successMessage);
       form.reset(DEFAULT_VALUES);
     } catch (error) {
@@ -99,7 +101,10 @@ const ContactForm = () => {
         duration: 15000,
         action: {
           label: contactPageContent.form.whatsappFallbackLabel,
-          onClick: () => window.open(whatsappUrl, '_blank', 'noopener,noreferrer'),
+          onClick: () => {
+            trackEvent('click_whatsapp', { link_location: 'form_fallback' });
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+          },
         },
       });
     }

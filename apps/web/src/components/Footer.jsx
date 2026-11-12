@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, Clock } from 'lucide-react';
 import { socialIconMap } from '@/components/icons/SocialIcons';
-import { contactEmails, contactPhones, footerQuickLinks, siteConfig, socialLinks } from '@/data/site';
+import { contactEmails, contactPhones, cookieConsentContent, footerQuickLinks, siteConfig, socialLinks } from '@/data/site';
+import { isAnalyticsConfigured, resetConsent } from '@/lib/analytics';
 
 const Footer = () => {
   return (
@@ -111,6 +112,15 @@ const Footer = () => {
           <p className="text-sm text-white/50 font-medium">
             © {new Date().getFullYear()} {siteConfig.brand.displayName}. Todos los derechos reservados.
           </p>
+          {isAnalyticsConfigured() && (
+            <button
+              type="button"
+              onClick={resetConsent}
+              className="mt-3 text-xs text-white/50 underline underline-offset-4 hover:text-white/80 transition-colors"
+            >
+              {cookieConsentContent.preferencesLabel}
+            </button>
+          )}
         </div>
       </div>
     </footer>

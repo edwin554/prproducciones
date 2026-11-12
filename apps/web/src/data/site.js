@@ -8,6 +8,19 @@ export const getCanonicalUrl = (path = '/') => {
   return `${siteBaseUrl}${path.startsWith('/') ? path : `/${path}`}`;
 };
 
+// Google Analytics 4. Vacío = analítica desactivada (no se muestra el aviso de cookies).
+export const analyticsConfig = {
+  ga4MeasurementId: 'G-VJ21M5BZ4D',
+};
+
+export const cookieConsentContent = {
+  title: 'Cookies de medición',
+  description: 'Usamos Google Analytics para saber cuántas personas visitan la web y qué páginas les interesan. Solo se activa si lo aceptas, y puedes cambiar tu elección cuando quieras desde el pie de página.',
+  acceptLabel: 'Aceptar',
+  rejectLabel: 'Rechazar',
+  preferencesLabel: 'Preferencias de cookies',
+};
+
 // Imagen por defecto para la vista previa al compartir en redes (1200x630).
 export const seoDefaults = {
   image: 'https://images.unsplash.com/photo-1629276301226-63a884a68e4f?auto=format&fit=crop&w=1200&h=630&q=80',

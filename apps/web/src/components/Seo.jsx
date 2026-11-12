@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect } from 'react';
 import { seoDefaults, siteConfig } from '@/data/site';
+import { trackPageView } from '@/lib/analytics';
 
 // Etiquetas <head> de cada página: título, descripción, canonical y vista previa
 // para redes sociales (Open Graph / Twitter).
@@ -69,6 +70,8 @@ const Seo = ({ page, noindex = false }) => {
 
   useEffect(() => {
     applySeo(seo);
+    // Vista de página para la analítica (solo si el visitante la aceptó).
+    trackPageView();
     // seo se deriva de page/noindex; basta con depender de ellos.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, noindex]);
