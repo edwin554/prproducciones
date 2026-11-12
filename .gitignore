@@ -38,3 +38,6 @@ Thumbs.db
 
 # Credenciales SMTP generadas en el despliegue
 apps/web/public/api/config.php
+
+# Build SSR temporal del pre-renderizado
+dist/ssr/

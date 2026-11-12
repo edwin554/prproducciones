@@ -37,6 +37,18 @@ export const pageSeo = {
     description: 'Ponte en contacto con PR Producciones para cotizar la logística, BTL o producción técnica de tu evento en Colombia. Disponible 24/7. ¡Llámanos!',
     canonicalUrl: getCanonicalUrl('/contacto'),
   },
+  notFound: {
+    title: 'Página no encontrada | PR Producciones',
+    description: 'La página que buscas no existe o fue movida. Conoce nuestros servicios de producción de eventos y activación BTL en Colombia.',
+    canonicalUrl: getCanonicalUrl('/'),
+  },
+};
+
+export const notFoundPageContent = {
+  eyebrow: 'Error 404',
+  title: 'Esta página no existe',
+  description: 'Puede que el enlace esté mal escrito o que la página se haya movido. Te dejamos los accesos principales del sitio.',
+  homeLabel: 'Volver al inicio',
 };
 
 export const homePageContent = {

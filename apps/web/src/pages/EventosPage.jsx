@@ -1,8 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo.jsx';
 import { Building2, Heart, Church, Layers, CheckCircle2 } from 'lucide-react';
-import Header from '@/components/Header.jsx';
-import Footer from '@/components/Footer.jsx';
 import EventTypeCard from '@/components/EventTypeCard.jsx';
 import { eventosPageContent, pageSeo } from '@/data/pages';
 
@@ -15,13 +13,7 @@ const eventCategoryIconMap = {
 const EventosPage = () => {
   return (
     <>
-      <Helmet>
-        <title>{pageSeo.eventos.title}</title>
-        <meta name="description" content={pageSeo.eventos.description} />
-        <link rel="canonical" href={pageSeo.eventos.canonicalUrl} />
-      </Helmet>
-
-      <Header />
+      <Seo page={pageSeo.eventos} />
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
@@ -96,8 +88,6 @@ const EventosPage = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

@@ -1,8 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo.jsx';
 import { Mic, Volume2, Shield, Car, Users, Wrench, Music, Lightbulb, Sparkles, Calendar, Drumstick as Drum, Music as Guitar, Drumstick as Violin, Megaphone, CheckCircle2 } from 'lucide-react';
-import Header from '@/components/Header.jsx';
-import Footer from '@/components/Footer.jsx';
 import { pageSeo, servicesPageContent } from '@/data/pages';
 
 const serviceIconMap = {
@@ -25,13 +23,7 @@ const serviceIconMap = {
 const ServicesPage = () => {
   return (
     <>
-      <Helmet>
-        <title>{pageSeo.services.title}</title>
-        <meta name="description" content={pageSeo.services.description} />
-        <link rel="canonical" href={pageSeo.services.canonicalUrl} />
-      </Helmet>
-
-      <Header />
+      <Seo page={pageSeo.services} />
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
@@ -86,8 +78,6 @@ const ServicesPage = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

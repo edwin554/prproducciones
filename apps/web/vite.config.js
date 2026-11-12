@@ -215,8 +215,11 @@ if (window.navigation && window.self !== window.top) {
 }
 `;
 
+// Scripts del editor de Hostinger Horizons (reenvían errores y navegación a la ventana
+// que lo contiene). Solo tienen sentido en desarrollo: no se incluyen en producción.
 const addTransformIndexHtml = {
 	name: 'add-transform-index-html',
+	apply: 'serve',
 	transformIndexHtml(html) {
 		const tags = [
 			{
@@ -284,7 +287,7 @@ logger.error = (msg, options) => {
 	loggerError(msg, options);
 }
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
 	optimizeDeps: {
 		include: allDeps,
 	},
@@ -312,6 +315,10 @@ export default defineConfig({
 			],
 		},
 	},
+	// El build SSR (pre-renderizado) empaqueta las dependencias para evitar problemas CommonJS/ESM en Node.
+	ssr: {
+		noExternal: true,
+	},
 	resolve: {
 		extensions: ['.jsx', '.js', '.tsx', '.ts', '.json',],
 		alias: {
@@ -326,8 +333,9 @@ export default defineConfig({
 				'@babel/generator',
 				'@babel/types'
 			],
-			output: {
-				// Librerías en archivos aparte: cambian poco y el navegador las mantiene en caché entre despliegues.
+			// Librerías en archivos aparte: cambian poco y el navegador las mantiene en caché entre despliegues.
+			// (Solo en el build del navegador; el build SSR del pre-renderizado no las necesita.)
+			output: isSsrBuild ? { entryFileNames: '[name].mjs', chunkFileNames: '[name]-[hash].mjs' } : {
 				manualChunks: {
 					'vendor-react': ['react', 'react-dom', 'react-router-dom'],
 					'vendor-motion': ['framer-motion'],
@@ -335,4 +343,4 @@ export default defineConfig({
 			},
 		}
 	}
-});
+}));

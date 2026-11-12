@@ -1,9 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo.jsx';
 import { CheckCircle2, Clock, ShieldCheck, Users2 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Header from '@/components/Header.jsx';
-import Footer from '@/components/Footer.jsx';
 import PersonalCategoryCard from '@/components/PersonalCategoryCard.jsx';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { pageSeo, personalPageContent } from '@/data/pages';
@@ -11,13 +9,7 @@ import { pageSeo, personalPageContent } from '@/data/pages';
 const PersonalPage = () => {
   return (
     <>
-      <Helmet>
-        <title>{pageSeo.personal.title}</title>
-        <meta name="description" content={pageSeo.personal.description} />
-        <link rel="canonical" href={pageSeo.personal.canonicalUrl} />
-      </Helmet>
-
-      <Header />
+      <Seo page={pageSeo.personal} />
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
@@ -130,8 +122,6 @@ const PersonalPage = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

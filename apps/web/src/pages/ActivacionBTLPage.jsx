@@ -1,23 +1,15 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo.jsx';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Target, TrendingUp, Zap, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Header from '@/components/Header.jsx';
-import Footer from '@/components/Footer.jsx';
 import { activacionBtlPageContent, pageSeo } from '@/data/pages';
 
 const ActivacionBTLPage = () => {
   return (
     <>
-      <Helmet>
-        <title>{pageSeo.activacionBtl.title}</title>
-        <meta name="description" content={pageSeo.activacionBtl.description} />
-        <link rel="canonical" href={pageSeo.activacionBtl.canonicalUrl} />
-      </Helmet>
-
-      <Header />
+      <Seo page={pageSeo.activacionBtl} />
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
@@ -136,8 +128,6 @@ const ActivacionBTLPage = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

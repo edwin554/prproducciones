@@ -1,8 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo.jsx';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
-import Header from '@/components/Header.jsx';
-import Footer from '@/components/Footer.jsx';
 import ContactForm from '@/components/ContactForm.jsx';
 import { socialIconMap } from '@/components/icons/SocialIcons';
 import { contactPageContent, pageSeo } from '@/data/pages';
@@ -11,13 +9,7 @@ import { contactEmails, contactPhones, siteConfig, socialLinks } from '@/data/si
 const ContactPage = () => {
   return (
     <>
-      <Helmet>
-        <title>{pageSeo.contacto.title}</title>
-        <meta name="description" content={pageSeo.contacto.description} />
-        <link rel="canonical" href={pageSeo.contacto.canonicalUrl} />
-      </Helmet>
-
-      <Header />
+      <Seo page={pageSeo.contacto} />
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
@@ -134,8 +126,6 @@ const ContactPage = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

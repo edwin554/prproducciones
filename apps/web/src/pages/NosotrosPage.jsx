@@ -1,11 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo.jsx';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Shield, Users, Megaphone, Clock, Settings, Music } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Header from '@/components/Header.jsx';
-import Footer from '@/components/Footer.jsx';
 import { nosotrosPageContent, pageSeo } from '@/data/pages';
 
 const pillarIconMap = {
@@ -20,13 +18,7 @@ const pillarIconMap = {
 const NosotrosPage = () => {
   return (
     <>
-      <Helmet>
-        <title>{pageSeo.nosotros.title}</title>
-        <meta name="description" content={pageSeo.nosotros.description} />
-        <link rel="canonical" href={pageSeo.nosotros.canonicalUrl} />
-      </Helmet>
-
-      <Header />
+      <Seo page={pageSeo.nosotros} />
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
@@ -133,8 +125,6 @@ const NosotrosPage = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

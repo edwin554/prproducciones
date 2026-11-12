@@ -1,11 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo.jsx';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Users, Clock, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Header from '@/components/Header.jsx';
-import Footer from '@/components/Footer.jsx';
 import PortfolioSection from '@/components/PortfolioSection.jsx';
 import TestimonialsSection from '@/components/TestimonialsSection.jsx';
 import { homePageContent, pageSeo } from '@/data/pages';
@@ -14,13 +12,7 @@ import { siteConfig } from '@/data/site';
 const HomePage = () => {
   return (
     <>
-      <Helmet>
-        <title>{pageSeo.home.title}</title>
-        <meta name="description" content={pageSeo.home.description} />
-        <link rel="canonical" href={pageSeo.home.canonicalUrl} />
-      </Helmet>
-
-      <Header />
+      <Seo page={pageSeo.home} />
 
       <main>
         {/* Hero Section */}
@@ -49,7 +41,7 @@ const HomePage = () => {
               <span>{homePageContent.hero.badge}</span>
               </div>
               
-              <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] xl:text-[9rem] font-black text-white mb-8 leading-[0.95] tracking-tight text-balance max-w-6xl">
+              <h1 className="text-[2.75rem] sm:text-6xl md:text-8xl lg:text-[7.5rem] xl:text-[9rem] font-black text-white mb-8 leading-[0.95] tracking-tight text-balance max-w-6xl">
               {homePageContent.hero.title}
               </h1>
                
@@ -206,8 +198,6 @@ const HomePage = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

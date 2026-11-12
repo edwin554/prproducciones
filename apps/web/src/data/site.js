@@ -8,6 +8,11 @@ export const getCanonicalUrl = (path = '/') => {
   return `${siteBaseUrl}${path.startsWith('/') ? path : `/${path}`}`;
 };
 
+// Imagen por defecto para la vista previa al compartir en redes (1200x630).
+export const seoDefaults = {
+  image: 'https://images.unsplash.com/photo-1629276301226-63a884a68e4f?auto=format&fit=crop&w=1200&h=630&q=80',
+};
+
 export const siteConfig = {
   brand: {
     monogram: 'PR',
