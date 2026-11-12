@@ -33,21 +33,21 @@ const Header = () => {
   return (
     <>
       <header className={`sticky top-0 z-50 border-b bg-white/90 backdrop-blur-xl transition-all duration-300 ${hasScrolled ? 'border-border/80 shadow-lg shadow-black/10' : 'border-transparent shadow-sm'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 xl:px-8">
           <div className="flex h-20 items-center justify-between gap-4 xl:gap-6">
             {/* Logo & Badge */}
             <div className="flex flex-shrink-0 items-center gap-5 xl:gap-6">
               <Link to="/" className="flex items-center gap-2.5">
                 <div className="text-base sm:text-xl font-bold text-primary">{siteConfig.brand.displayName}</div>
               </Link>
-              <div className="premium-surface hidden items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase whitespace-nowrap text-white md:flex lg:hidden xl:flex">
+              <div className="premium-surface hidden items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase whitespace-nowrap text-white md:flex xl:hidden 2xl:flex">
                 <Clock className="w-3 h-3 mr-1" />
                 {siteConfig.availabilityLabel}
               </div>
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden flex-1 items-center justify-center gap-1.5 px-4 lg:flex xl:gap-2 xl:px-6">
+            <nav className="hidden flex-1 items-center justify-center gap-1.5 px-4 xl:flex xl:gap-2 xl:px-2 2xl:px-6">
               {navigationLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -64,11 +64,21 @@ const Header = () => {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden flex-shrink-0 items-center gap-3 lg:flex xl:gap-4">
-              <a href={siteConfig.phone.href} className="flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors duration-200 whitespace-nowrap">
+            <div className="hidden flex-shrink-0 items-center gap-3 xl:flex xl:gap-4">
+              <div className="flex items-center gap-2 text-sm text-foreground">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span className="font-medium whitespace-nowrap">{siteConfig.phone.display}</span>
-              </a>
+                <div className="flex flex-col leading-tight">
+                  {contactPhones.map((phone) => (
+                    <a
+                      key={phone.href}
+                      href={phone.href}
+                      className="font-medium whitespace-nowrap hover:text-primary transition-colors duration-200"
+                    >
+                      {phone.display}
+                    </a>
+                  ))}
+                </div>
+              </div>
               <Button asChild className="premium-button flex-shrink-0 border border-white/10 text-white">
                 <Link to="/contacto">Cotiza ahora</Link>
               </Button>
@@ -77,7 +87,7 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-accent transition-colors duration-200"
+              className="xl:hidden p-2 rounded-lg hover:bg-accent transition-colors duration-200"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -87,7 +97,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-border bg-white">
+          <div className="xl:hidden border-t border-border bg-white">
             <div className="premium-surface px-4 py-3 flex items-center justify-center text-sm font-bold uppercase tracking-wide text-white">
               <Clock className="w-4 h-4 mr-2" />
               {siteConfig.availabilityLabel}
