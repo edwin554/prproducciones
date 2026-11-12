@@ -25,6 +25,7 @@ const ActivacionBTLPage = () => {
           <div className="absolute inset-0 z-0">
             <img
               src={activacionBtlPageContent.hero.backgroundImage}
+              // eslint-disable-next-line react/no-unknown-property -- React 18 solo reconoce el atributo en minúscula
               fetchpriority="high"
               alt={activacionBtlPageContent.hero.backgroundAlt}
               className="w-full h-full object-cover opacity-40"

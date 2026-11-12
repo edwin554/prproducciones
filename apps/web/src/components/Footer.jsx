@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, Clock } from 'lucide-react';
 import { socialIconMap } from '@/components/icons/SocialIcons';
-import { contactPhones, footerQuickLinks, siteConfig, socialLinks } from '@/data/site';
+import { contactEmails, contactPhones, footerQuickLinks, siteConfig, socialLinks } from '@/data/site';
 
 const Footer = () => {
   return (
@@ -56,17 +56,19 @@ const Footer = () => {
                   </a>
                 </li>
               ))}
-              <li>
-                <a
-                  href={siteConfig.email.href}
-                  className="flex items-center space-x-3 text-sm text-white/70 hover:text-primary transition-colors duration-200"
-                >
-                  <div className="p-2 bg-white/5 rounded-md">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <span className="font-medium">{siteConfig.email.display}</span>
-                </a>
-              </li>
+              {contactEmails.map((email) => (
+                <li key={email.href}>
+                  <a
+                    href={email.href}
+                    className="flex items-center space-x-3 text-sm text-white/70 hover:text-primary transition-colors duration-200"
+                  >
+                    <div className="p-2 bg-white/5 rounded-md">
+                      <Mail className="w-4 h-4" />
+                    </div>
+                    <span className="font-medium break-all">{email.display}</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 

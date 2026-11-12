@@ -27,6 +27,7 @@ const HomePage = () => {
         <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
+            {/* eslint-disable-next-line react/no-unknown-property -- React 18 solo reconoce el atributo en minúscula */}
             <img src={homePageContent.hero.backgroundImage} alt={homePageContent.hero.backgroundAlt} fetchpriority="high" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-br from-secondary/95 via-secondary/80 to-primary/60 mix-blend-multiply"></div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,35,85,0.28),transparent_32%)] mix-blend-screen"></div>

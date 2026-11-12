@@ -6,7 +6,7 @@ import Footer from '@/components/Footer.jsx';
 import ContactForm from '@/components/ContactForm.jsx';
 import { socialIconMap } from '@/components/icons/SocialIcons';
 import { contactPageContent, pageSeo } from '@/data/pages';
-import { contactPhones, siteConfig, socialLinks } from '@/data/site';
+import { contactEmails, contactPhones, siteConfig, socialLinks } from '@/data/site';
 
 const ContactPage = () => {
   return (
@@ -70,18 +70,23 @@ const ContactPage = () => {
                       </div>
                     </div>
 
-                    <a
-                      href={siteConfig.email.href}
-                      className="flex items-center space-x-6 p-6 rounded-2xl bg-muted hover:bg-primary/5 transition-all duration-300 group border border-transparent hover:border-primary/20"
-                    >
-                      <div className="p-4 rounded-xl bg-white shadow-sm group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                        <Mail className="w-7 h-7 text-primary group-hover:text-white" />
+                    <div className="flex items-center space-x-6 p-6 rounded-2xl bg-muted border border-transparent">
+                      <div className="p-4 rounded-xl bg-white shadow-sm">
+                        <Mail className="w-7 h-7 text-primary" />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <div className="text-sm text-muted-foreground font-bold uppercase tracking-wider mb-1">{contactPageContent.contactInfo.emailLabel}</div>
-                        <div className="text-xl font-black text-foreground break-all">{siteConfig.email.display}</div>
+                        {contactEmails.map((email) => (
+                          <a
+                            key={email.href}
+                            href={email.href}
+                            className="block text-xl font-black text-foreground break-all hover:text-primary transition-colors duration-200"
+                          >
+                            {email.display}
+                          </a>
+                        ))}
                       </div>
-                    </a>
+                    </div>
 
                     <div className="flex items-center space-x-6 p-6 rounded-2xl bg-muted">
                       <div className="p-4 rounded-xl bg-white shadow-sm">

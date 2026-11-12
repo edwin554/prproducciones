@@ -29,6 +29,10 @@ export const siteConfig = {
     display: 'pabloemiliorozo85@gmail.com',
     href: 'mailto:pabloemiliorozo85@gmail.com',
   },
+  secondaryEmail: {
+    display: 'mexpress185@gmail.com',
+    href: 'mailto:mexpress185@gmail.com',
+  },
   coverage: 'Bogotá, Medellín, Cali, Barranquilla y los 32 departamentos de Colombia',
   footer: {
     description: 'Coordinamos toda la logística, activación comercial y manejo de seguridad de tus eventos en Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Cartagena y en los 32 departamentos de Colombia.',
@@ -40,6 +44,9 @@ export const siteConfig = {
 
 // Todos los teléfonos de contacto, el principal primero.
 export const contactPhones = [siteConfig.phone, siteConfig.secondaryPhone];
+
+// Todos los correos de contacto, el principal primero.
+export const contactEmails = [siteConfig.email, siteConfig.secondaryEmail];
 
 export const navigationLinks = [
   { name: 'Inicio', path: '/' },
