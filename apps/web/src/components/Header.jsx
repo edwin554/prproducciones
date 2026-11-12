@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Clock, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { navigationLinks, siteConfig } from '@/data/site';
+import { contactPhones, navigationLinks, siteConfig } from '@/data/site';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -108,13 +108,16 @@ const Header = () => {
                 </Link>
               ))}
               <div className="pt-4 space-y-3">
-                <a
-                  href={siteConfig.phone.href}
-                  className="flex items-center justify-center space-x-2 px-4 py-3 rounded-lg bg-accent text-sm font-medium"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>{siteConfig.phone.display}</span>
-                </a>
+                {contactPhones.map((phone) => (
+                  <a
+                    key={phone.href}
+                    href={phone.href}
+                    className="flex items-center justify-center space-x-2 px-4 py-3 rounded-lg bg-accent text-sm font-medium"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>{phone.display}</span>
+                  </a>
+                ))}
                 <Button asChild className="premium-button w-full border border-white/10 text-white">
                   <Link to="/contacto" onClick={() => setMobileMenuOpen(false)}>
                     Cotiza ahora

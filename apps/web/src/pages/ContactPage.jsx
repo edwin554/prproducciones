@@ -6,7 +6,7 @@ import Footer from '@/components/Footer.jsx';
 import ContactForm from '@/components/ContactForm.jsx';
 import { socialIconMap } from '@/components/icons/SocialIcons';
 import { contactPageContent, pageSeo } from '@/data/pages';
-import { siteConfig, socialLinks } from '@/data/site';
+import { contactPhones, siteConfig, socialLinks } from '@/data/site';
 
 const ContactPage = () => {
   return (
@@ -52,18 +52,23 @@ const ContactPage = () => {
                 <div>
                   <h2 className="text-3xl font-black text-foreground mb-8">{contactPageContent.contactInfo.title}</h2>
                   <div className="space-y-4">
-                    <a
-                      href={siteConfig.phone.href}
-                      className="flex items-center space-x-6 p-6 rounded-2xl bg-muted hover:bg-primary/5 transition-all duration-300 group border border-transparent hover:border-primary/20"
-                    >
-                      <div className="p-4 rounded-xl bg-white shadow-sm group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                        <Phone className="w-7 h-7 text-primary group-hover:text-white" />
+                    <div className="flex items-center space-x-6 p-6 rounded-2xl bg-muted border border-transparent">
+                      <div className="p-4 rounded-xl bg-white shadow-sm">
+                        <Phone className="w-7 h-7 text-primary" />
                       </div>
                       <div>
                         <div className="text-sm text-muted-foreground font-bold uppercase tracking-wider mb-1">{contactPageContent.contactInfo.phoneLabel}</div>
-                        <div className="text-2xl font-black text-foreground">{siteConfig.phone.display}</div>
+                        {contactPhones.map((phone) => (
+                          <a
+                            key={phone.href}
+                            href={phone.href}
+                            className="block text-2xl font-black text-foreground hover:text-primary transition-colors duration-200"
+                          >
+                            {phone.display}
+                          </a>
+                        ))}
                       </div>
-                    </a>
+                    </div>
 
                     <a
                       href={siteConfig.email.href}

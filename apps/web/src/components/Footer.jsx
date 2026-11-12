@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, Clock } from 'lucide-react';
 import { socialIconMap } from '@/components/icons/SocialIcons';
-import { footerQuickLinks, siteConfig, socialLinks } from '@/data/site';
+import { contactPhones, footerQuickLinks, siteConfig, socialLinks } from '@/data/site';
 
 const Footer = () => {
   return (
@@ -43,17 +43,19 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-6 uppercase tracking-wider text-white/90">Contacto</h3>
             <ul className="space-y-4">
-              <li>
-                <a
-                  href={siteConfig.phone.href}
-                  className="flex items-center space-x-3 text-sm text-white/70 hover:text-primary transition-colors duration-200"
-                >
-                  <div className="p-2 bg-white/5 rounded-md">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <span className="font-medium">{siteConfig.phone.display}</span>
-                </a>
-              </li>
+              {contactPhones.map((phone) => (
+                <li key={phone.href}>
+                  <a
+                    href={phone.href}
+                    className="flex items-center space-x-3 text-sm text-white/70 hover:text-primary transition-colors duration-200"
+                  >
+                    <div className="p-2 bg-white/5 rounded-md">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <span className="font-medium">{phone.display}</span>
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
                   href={siteConfig.email.href}

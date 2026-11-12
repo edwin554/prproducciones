@@ -21,6 +21,10 @@ export const siteConfig = {
     whatsappHref: 'https://wa.me/573117318419',
     placeholder: '+57 311 731 8419',
   },
+  secondaryPhone: {
+    display: '+57 304 529 8633',
+    href: 'tel:+573045298633',
+  },
   email: {
     display: 'pabloemiliorozo85@gmail.com',
     href: 'mailto:pabloemiliorozo85@gmail.com',
@@ -33,6 +37,9 @@ export const siteConfig = {
     closingText: 'Comunicamos de manera eficiente la esencia de tu negocio. Somos el aliado estratégico que tu marca necesita para destacar. ¡Contáctanos hoy y cotiza tu próximo gran evento!'
   },
 };
+
+// Todos los teléfonos de contacto, el principal primero.
+export const contactPhones = [siteConfig.phone, siteConfig.secondaryPhone];
 
 export const navigationLinks = [
   { name: 'Inicio', path: '/' },
