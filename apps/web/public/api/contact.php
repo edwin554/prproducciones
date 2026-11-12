@@ -8,7 +8,8 @@
  * `empresa_web` es un campo trampa anti-spam.
  */
 
-const CONTACT_TO = 'pabloemiliorozo85@gmail.com';
+// Destinatarios del aviso: los mismos correos que se muestran en la página de contacto.
+const CONTACT_TO = ['pabloemiliorozo85@gmail.com', 'mexpress185@gmail.com'];
 const SUBJECT_PREFIX = 'Nuevo mensaje web - PR Producciones';
 
 header('Content-Type: application/json; charset=utf-8');
@@ -117,7 +118,7 @@ if (!empty($smtp['host']) && !empty($smtp['user']) && !empty($smtp['pass'])) {
     // Envío autenticado con el buzón del dominio (SPF/DKIM correctos → no cae en spam).
     require __DIR__ . '/lib/SmtpMailer.php';
     $mailer = new SmtpMailer($smtp['host'], (int) ($smtp['port'] ?? 465), $smtp['user'], $smtp['pass']);
-    $sent = $mailer->send($smtp['user'], 'PR Producciones Web', [CONTACT_TO], $email, $subject, $body);
+    $sent = $mailer->send($smtp['user'], 'PR Producciones Web', CONTACT_TO, $email, $subject, $body);
     if (!$sent) {
         error_log('contact.php SMTP: ' . $mailer->getLastError());
     }
@@ -133,7 +134,7 @@ if (!empty($smtp['host']) && !empty($smtp['user']) && !empty($smtp['pass'])) {
         "From: PR Producciones Web <{$from}>",
         "Reply-To: {$email}",
     ]);
-    $sent = @mail(CONTACT_TO, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, $headers, '-f' . $from);
+    $sent = @mail(implode(', ', CONTACT_TO), '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, $headers, '-f' . $from);
 }
 
 if (!$sent && !$saved) {
