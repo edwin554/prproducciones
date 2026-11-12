@@ -14,6 +14,8 @@ const PortfolioCard = ({ image, type, location, year, index }) => {
       <div className="aspect-[4/3] overflow-hidden relative">
         <img
           src={image}
+          loading="lazy"
+          decoding="async"
           alt={`${type} en ${location}`}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />

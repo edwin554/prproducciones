@@ -25,6 +25,7 @@ const ActivacionBTLPage = () => {
           <div className="absolute inset-0 z-0">
             <img
               src={activacionBtlPageContent.hero.backgroundImage}
+              fetchpriority="high"
               alt={activacionBtlPageContent.hero.backgroundAlt}
               className="w-full h-full object-cover opacity-40"
             />

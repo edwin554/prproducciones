@@ -47,7 +47,7 @@ export const homePageContent = {
     metrics: ['+500 eventos producidos', '10 años de experiencia', 'Cobertura 32 departamentos'],
     primaryCtaLabel: 'Cotizar mi evento',
     secondaryCtaLabel: 'Ver portafolio',
-    backgroundImage: 'https://images.unsplash.com/photo-1629276301226-63a884a68e4f',
+    backgroundImage: 'https://images.unsplash.com/photo-1629276301226-63a884a68e4f?auto=format&fit=crop&w=1920&q=75',
     backgroundAlt: 'Producción profesional de eventos',
   },
   highlights: [
@@ -115,7 +115,7 @@ export const personalPageContent = {
     'Equipo disponible 24/7 con excelente presentación y actitud de servicio.',
     'Perfiles seleccionados para logística, protocolo, seguridad y atención al público.',
   ],
-  image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205',
+  image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=75',
   imageAlt: 'Equipo de protocolo y logística para eventos',
   categories: [
     'Personal logístico',
@@ -149,7 +149,7 @@ export const activacionBtlPageContent = {
     title: 'NO PIERDAS MAS DINERO',
     highlight: 'ACTIVA CON NOSOTROS',
     description: 'Todas las estrategias BTL, por más descabelladas que sean, las hacemos posibles.',
-    backgroundImage: 'https://images.unsplash.com/photo-1609869510749-19872196be1e',
+    backgroundImage: 'https://images.unsplash.com/photo-1609869510749-19872196be1e?auto=format&fit=crop&w=1920&q=75',
     backgroundAlt: 'Activación BTL profesional',
   },
   valueProposition: {
@@ -246,7 +246,7 @@ export const nosotrosPageContent = {
     subtitle: 'Productora y Agencia de Eventos Profesional',
     description: 'Somos una productora integral con amplia experiencia en la logística, coordinación de personal, seguridad y producción técnica para todo tipo de eventos a nivel nacional. Combinamos visión empresarial, talento calificado y tecnología para garantizar resultados excepcionales y hacer realidad tus proyectos en cualquier parte del país.',
     ctaLabel: 'Trabajar con nosotros',
-    image: 'https://images.unsplash.com/photo-1703763872638-bd28599b6c36',
+    image: 'https://images.unsplash.com/photo-1703763872638-bd28599b6c36?auto=format&fit=crop&w=1200&q=75',
     imageAlt: 'Equipo profesional de PR PRODUCCIONES',
   },
   pillars: {

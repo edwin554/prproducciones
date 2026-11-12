@@ -325,7 +325,14 @@ export default defineConfig({
 				'@babel/traverse',
 				'@babel/generator',
 				'@babel/types'
-			]
+			],
+			output: {
+				// Librerías en archivos aparte: cambian poco y el navegador las mantiene en caché entre despliegues.
+				manualChunks: {
+					'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+					'vendor-motion': ['framer-motion'],
+				},
+			},
 		}
 	}
 });

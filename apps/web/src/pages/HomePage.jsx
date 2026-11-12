@@ -27,7 +27,7 @@ const HomePage = () => {
         <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
-            <img src={homePageContent.hero.backgroundImage} alt={homePageContent.hero.backgroundAlt} className="w-full h-full object-cover" />
+            <img src={homePageContent.hero.backgroundImage} alt={homePageContent.hero.backgroundAlt} fetchpriority="high" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-br from-secondary/95 via-secondary/80 to-primary/60 mix-blend-multiply"></div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,35,85,0.28),transparent_32%)] mix-blend-screen"></div>
           </div>
@@ -127,7 +127,7 @@ const HomePage = () => {
             }}>
                <div className="relative">
                  <div className="absolute -left-10 top-12 h-48 w-48 rounded-full bg-primary/25 blur-3xl opacity-80 mix-blend-screen pointer-events-none"></div>
-                 <img src={homePageContent.about.image} alt={homePageContent.about.imageAlt} className="relative w-full h-[600px] object-cover rounded-3xl border border-white/10 shadow-2xl shadow-black/40" />
+                 <img src={homePageContent.about.image} alt={homePageContent.about.imageAlt} loading="lazy" decoding="async" className="relative w-full h-[600px] object-cover rounded-3xl border border-white/10 shadow-2xl shadow-black/40" />
                </div>
              </motion.div>
 
@@ -173,7 +173,7 @@ const HomePage = () => {
 
         {/* CTA Section */}
         <section className="section-spacing premium-surface text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=60')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
           <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-3xl opacity-70 mix-blend-screen pointer-events-none"></div>
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div initial={{

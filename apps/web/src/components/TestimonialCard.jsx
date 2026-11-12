@@ -35,6 +35,8 @@ const TestimonialCard = ({ name, company, text, rating, eventType, avatar, index
       <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/10">
         <img
           src={avatar}
+          loading="lazy"
+          decoding="async"
           alt={name}
           className="w-14 h-14 rounded-full object-cover border-2 border-primary/30 bg-white/10"
         />
