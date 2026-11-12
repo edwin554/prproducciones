@@ -11,6 +11,7 @@
     "lint:warn": "eslint ."
   },
   "dependencies": {
+    "@fontsource-variable/outfit": "^5.2.6",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-avatar": "^1.1.11",
     "@radix-ui/react-label": "^2.1.8",
@@ -31,10 +32,6 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@babel/generator": "^7.26.3",
-    "@babel/parser": "^7.26.3",
-    "@babel/traverse": "^7.26.4",
-    "@babel/types": "^7.26.3",
     "@types/node": "^20.17.10",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",

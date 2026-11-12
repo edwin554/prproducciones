@@ -1,7 +1,7 @@
 import React from 'react';
 import Seo from '@/components/Seo.jsx';
 import { CheckCircle2, Clock, ShieldCheck, Users2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import PersonalCategoryCard from '@/components/PersonalCategoryCard.jsx';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { pageSeo, personalPageContent } from '@/data/pages';
@@ -15,7 +15,7 @@ const PersonalPage = () => {
         {/* Hero Section */}
         <section className="dark dark-premium-section text-white py-24">
           <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -64,9 +64,9 @@ const PersonalPage = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -98,7 +98,7 @@ const PersonalPage = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 

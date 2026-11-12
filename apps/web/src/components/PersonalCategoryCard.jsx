@@ -1,13 +1,13 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Users } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const PersonalCategoryCard = ({ category, index }) => {
   const itemNumber = String(index + 1).padStart(2, '0');
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -33,7 +33,7 @@ const PersonalCategoryCard = ({ category, index }) => {
           <div className="h-1 w-16 rounded-full bg-primary/70" />
         </CardContent>
       </Card>
-    </motion.div>
+    </m.div>
   );
 };
 

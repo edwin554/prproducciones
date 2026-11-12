@@ -1,10 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 
 const TestimonialCard = ({ name, company, text, rating, eventType, avatar, index }) => {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -47,7 +47,7 @@ const TestimonialCard = ({ name, company, text, rating, eventType, avatar, index
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from '@/App';
+// Fuente alojada en el propio sitio (sin petición a Google Fonts).
+import '@fontsource-variable/outfit/wght.css';
 import '@/index.css';
 
 const app = (

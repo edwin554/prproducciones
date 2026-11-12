@@ -3,7 +3,7 @@ import Seo from '@/components/Seo.jsx';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Users, Clock, MapPin } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import PortfolioSection from '@/components/PortfolioSection.jsx';
 import TestimonialsSection from '@/components/TestimonialsSection.jsx';
 import { homePageContent, pageSeo } from '@/data/pages';
@@ -27,7 +27,7 @@ const HomePage = () => {
 
           {/* Content */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-            <motion.div initial={{
+            <m.div initial={{
             opacity: 0,
             y: 30
           }} animate={{
@@ -69,10 +69,10 @@ const HomePage = () => {
                 <Link to="/eventos">{homePageContent.hero.secondaryCtaLabel}</Link>
                 </Button>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Stats / Highlights */}
-            <motion.div initial={{
+            <m.div initial={{
             opacity: 0,
             y: 20
           }} animate={{
@@ -97,7 +97,7 @@ const HomePage = () => {
               <div className="text-2xl font-bold text-white mb-2">{homePageContent.highlights[2].title}</div>
               <div className="text-base text-white/80">{homePageContent.highlights[2].description}</div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -107,7 +107,7 @@ const HomePage = () => {
           <div className="absolute right-[-6%] bottom-10 h-56 w-56 rounded-full bg-fuchsia-500/10 blur-3xl opacity-80 mix-blend-screen pointer-events-none"></div>
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <motion.div initial={{
+              <m.div initial={{
               opacity: 0,
               x: -30
             }} whileInView={{
@@ -122,9 +122,9 @@ const HomePage = () => {
                  <div className="absolute -left-10 top-12 h-48 w-48 rounded-full bg-primary/25 blur-3xl opacity-80 mix-blend-screen pointer-events-none"></div>
                  <img src={homePageContent.about.image} alt={homePageContent.about.imageAlt} loading="lazy" decoding="async" className="relative w-full h-[600px] object-cover rounded-3xl border border-white/10 shadow-2xl shadow-black/40" />
                </div>
-             </motion.div>
+             </m.div>
 
-              <motion.div initial={{
+              <m.div initial={{
               opacity: 0,
               x: 30
             }} whileInView={{
@@ -153,7 +153,7 @@ const HomePage = () => {
                     </Link>
                   </Button>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -169,7 +169,7 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=60')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
           <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-3xl opacity-70 mix-blend-screen pointer-events-none"></div>
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div initial={{
+            <m.div initial={{
             opacity: 0,
             y: 20
           }} whileInView={{
@@ -194,7 +194,7 @@ const HomePage = () => {
                 <a href={siteConfig.phone.href}>{homePageContent.cta.callCtaLabel}</a>
                 </Button>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       </main>

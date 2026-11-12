@@ -3,7 +3,7 @@ import Seo from '@/components/Seo.jsx';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Target, TrendingUp, Zap, CheckCircle2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { activacionBtlPageContent, pageSeo } from '@/data/pages';
 
 const ActivacionBTLPage = () => {
@@ -27,7 +27,7 @@ const ActivacionBTLPage = () => {
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -41,7 +41,7 @@ const ActivacionBTLPage = () => {
               <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto font-medium">
                 {activacionBtlPageContent.hero.description}
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -84,7 +84,7 @@ const ActivacionBTLPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {activacionBtlPageContent.reasons.map((point, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ const ActivacionBTLPage = () => {
                   <CheckCircle2 className="w-12 h-12 text-primary mb-6" />
                   <h3 className="text-2xl font-bold text-foreground mb-4">{point.title}</h3>
                   <p className="text-muted-foreground text-lg leading-relaxed">{point.description}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -106,7 +106,7 @@ const ActivacionBTLPage = () => {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-primary/20 blur-3xl rounded-full pointer-events-none"></div>
           
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -124,7 +124,7 @@ const ActivacionBTLPage = () => {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       </main>

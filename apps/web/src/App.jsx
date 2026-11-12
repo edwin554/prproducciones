@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { MotionConfig } from 'framer-motion';
+import { LazyMotion, MotionConfig, domAnimation } from 'framer-motion';
 import Layout from '@/components/Layout.jsx';
 import HomePage from './pages/HomePage.jsx';
 
@@ -19,21 +19,24 @@ export const prerenderRoutes = ['/', '/servicios', '/personal', '/activacion-btl
 // Rutas del sitio. El Router (navegador o servidor) lo pone quien monta la app.
 function App() {
   return (
+    // LazyMotion + domAnimation: solo el motor de animaciones que usamos (más ligero que `motion`).
     // reducedMotion="user": sin animaciones para quien las tiene desactivadas en su sistema.
-    <MotionConfig reducedMotion="user">
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/servicios" element={<ServicesPage />} />
-          <Route path="/personal" element={<PersonalPage />} />
-          <Route path="/activacion-btl" element={<ActivacionBTLPage />} />
-          <Route path="/eventos" element={<EventosPage />} />
-          <Route path="/nosotros" element={<NosotrosPage />} />
-          <Route path="/contacto" element={<ContactPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
-    </MotionConfig>
+    <LazyMotion features={domAnimation} strict>
+      <MotionConfig reducedMotion="user">
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/servicios" element={<ServicesPage />} />
+            <Route path="/personal" element={<PersonalPage />} />
+            <Route path="/activacion-btl" element={<ActivacionBTLPage />} />
+            <Route path="/eventos" element={<EventosPage />} />
+            <Route path="/nosotros" element={<NosotrosPage />} />
+            <Route path="/contacto" element={<ContactPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </MotionConfig>
+    </LazyMotion>
   );
 }
 

@@ -3,7 +3,7 @@ import Seo from '@/components/Seo.jsx';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Shield, Users, Megaphone, Clock, Settings, Music } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { nosotrosPageContent, pageSeo } from '@/data/pages';
 
 const pillarIconMap = {
@@ -25,7 +25,7 @@ const NosotrosPage = () => {
         <section className="py-24 dark dark-premium-section text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -38,9 +38,9 @@ const NosotrosPage = () => {
                     className="relative w-full h-[600px] object-cover rounded-3xl shadow-2xl border-4 border-white/10"
                   />
                 </div>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -61,7 +61,7 @@ const NosotrosPage = () => {
                 <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold text-white shadow-xl active:scale-[0.98]">
                   <Link to="/contacto">{nosotrosPageContent.hero.ctaLabel}</Link>
                 </Button>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -83,7 +83,7 @@ const NosotrosPage = () => {
                 const Icon = pillarIconMap[pillar.iconKey];
 
                 return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ const NosotrosPage = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-foreground mb-3">{pillar.title}</h3>
                   <p className="text-base text-muted-foreground leading-relaxed">{pillar.description}</p>
-                </motion.div>
+                </m.div>
                 );
               })}
             </div>
@@ -106,7 +106,7 @@ const NosotrosPage = () => {
         {/* Live Music & Entertainment Section */}
         <section className="py-24 bg-muted/50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -121,7 +121,7 @@ const NosotrosPage = () => {
               <p className="text-lg text-foreground/70 leading-relaxed">
                 {nosotrosPageContent.liveMusic.supportingText}
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       </main>

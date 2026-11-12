@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const EventTypeCard = ({ title, items, icon: Icon, index }) => {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -29,7 +29,7 @@ const EventTypeCard = ({ title, items, icon: Icon, index }) => {
           </ul>
         </CardContent>
       </Card>
-    </motion.div>
+    </m.div>
   );
 };
 
