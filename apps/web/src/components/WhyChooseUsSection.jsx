@@ -50,7 +50,7 @@ const WhyChooseUsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <Button asChild size="lg" className="premium-button border border-white/10 px-8 py-6 text-lg text-white shadow-lg shadow-primary/20 active:scale-[0.98]">
+          <Button asChild size="lg" className="premium-button border border-white/10 px-8 py-6 text-lg shadow-lg shadow-primary/20 active:scale-[0.98]">
             <Link to="/contacto">
               {whyChooseUsSectionContent.ctaLabel}
               <ArrowRight className="ml-2 w-5 h-5" />

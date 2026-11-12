@@ -29,7 +29,7 @@ const CookieConsent = () => {
         <Button variant="outline" onClick={() => setConsent('denied')}>
           {cookieConsentContent.rejectLabel}
         </Button>
-        <Button className="premium-button border border-white/10 text-white" onClick={() => setConsent('granted')}>
+        <Button className="premium-button border border-white/10" onClick={() => setConsent('granted')}>
           {cookieConsentContent.acceptLabel}
         </Button>
       </div>

@@ -17,7 +17,7 @@ const NotFoundPage = () => (
         </h1>
         <p className="text-lg text-muted-foreground mb-10">{notFoundPageContent.description}</p>
 
-        <Button asChild className="premium-button border border-white/10 text-white">
+        <Button asChild className="premium-button border border-white/10">
           <Link to="/">{notFoundPageContent.homeLabel}</Link>
         </Button>
 

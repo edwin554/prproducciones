@@ -12,57 +12,46 @@ html {
 }
 
 @layer base {
+  /* Identidad "Violeta eléctrico": violeta de marca, tinta violeta para fondos
+     oscuros y lima para las llamadas a la acción. */
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
-    --primary: 348 90% 52%;
+    --foreground: 248 30% 10%;
+    --primary: 263 70% 50%;            /* #6D28D9 violeta */
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 7%;
-    --secondary-foreground: 0 0% 100%;
-    --accent: 336 76% 42%;
-    --accent-foreground: 0 0% 100%;
+    --secondary: 248 48% 8%;           /* #0E0B1F tinta */
+    --secondary-foreground: 250 100% 98%;
+    --accent: 251 91% 95%;             /* #EDE9FE violeta muy claro (hovers) */
+    --accent-foreground: 263 70% 32%;
+    --cta: 77 90% 61%;                 /* #C4F542 lima */
+    --cta-foreground: 87 80% 10%;      /* #1A2E05 */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
-    --border: 0 0% 90%;
-    --input: 0 0% 96%;
-    --ring: 348 90% 52%;
+    --card-foreground: 248 30% 10%;
+    --muted: 250 33% 97%;
+    --muted-foreground: 250 8% 38%;
+    --border: 250 20% 90%;
+    --input: 250 20% 96%;
+    --ring: 263 70% 50%;
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
+  /* Secciones oscuras (clase .dark): lima como color de resalte. */
   .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 95%;
-    --primary: 348 83% 47%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 0 0% 100%;
-    --accent: 348 83% 47%;
-    --accent-foreground: 0 0% 100%;
-    --card: 0 0% 15%;
-    --card-foreground: 0 0% 95%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 60%;
-    --border: 0 0% 25%;
-    --input: 0 0% 20%;
-    --ring: 348 83% 47%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 248 48% 8%;
+    --foreground: 250 100% 98%;
+    --primary: 77 90% 61%;             /* lima */
+    --primary-foreground: 87 80% 10%;
+    --secondary: 249 40% 14%;
+    --secondary-foreground: 250 100% 98%;
+    --accent: 263 50% 22%;
+    --accent-foreground: 250 100% 98%;
+    --card: 249 40% 12%;
+    --card-foreground: 250 100% 98%;
+    --muted: 249 30% 16%;
+    --muted-foreground: 250 20% 75%;
+    --border: 249 25% 22%;
+    --input: 249 30% 16%;
+    --ring: 77 90% 61%;
   }
 }
 
@@ -77,15 +66,17 @@ html {
     @apply py-20 md:py-24 lg:py-32;
   }
   .premium-surface {
-    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(336 79% 42%) 58%, hsl(0 0% 8%) 100%);
+    background-image: linear-gradient(135deg, #7C3AED 0%, #5B21B6 55%, #2E1065 100%);
   }
+  /* Botón de llamada a la acción: lima con texto oscuro. */
   .premium-button {
-    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(336 79% 42%) 58%, hsl(0 0% 8%) 100%);
-    color: hsl(var(--primary-foreground));
-    box-shadow: 0 16px 40px hsl(var(--primary) / 0.24);
+    background-color: hsl(var(--cta));
+    background-image: linear-gradient(135deg, #D2FB6A 0%, #C4F542 50%, #A8E02A 100%);
+    color: hsl(var(--cta-foreground)) !important;
+    box-shadow: 0 14px 36px rgba(196, 245, 66, 0.28);
   }
   .premium-button:hover {
-    background-image: linear-gradient(135deg, hsl(348 92% 50%) 0%, hsl(336 79% 38%) 58%, hsl(0 0% 6%) 100%);
+    background-image: linear-gradient(135deg, #C8F44F 0%, #B5E62E 50%, #98CC1F 100%);
   }
   .premium-outline-button {
     background-color: rgba(255, 255, 255, 0.05);
@@ -101,11 +92,11 @@ html {
   .dark-premium-section {
     @apply relative overflow-hidden;
     isolation: isolate;
-    background-color: #111111;
+    background-color: #0E0B1F;
     background-image:
-      radial-gradient(circle at 12% 18%, rgba(230, 0, 35, 0.18), transparent 24%),
-      radial-gradient(circle at 84% 12%, rgba(191, 38, 99, 0.14), transparent 22%),
-      linear-gradient(180deg, #131316 0%, #0b0b0e 100%);
+      radial-gradient(circle at 12% 18%, rgba(124, 58, 237, 0.30), transparent 28%),
+      radial-gradient(circle at 86% 10%, rgba(196, 245, 66, 0.10), transparent 22%),
+      linear-gradient(180deg, #120E26 0%, #0A0816 100%);
   }
   .premium-panel {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);

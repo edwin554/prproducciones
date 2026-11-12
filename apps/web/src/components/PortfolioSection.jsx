@@ -41,7 +41,7 @@ const PortfolioSection = () => {
         </div>
 
         <div className="text-center">
-          <Button asChild size="lg" className="premium-button border border-white/10 px-8 py-6 text-lg font-bold text-white shadow-lg active:scale-[0.98]">
+          <Button asChild size="lg" className="premium-button border border-white/10 px-8 py-6 text-lg font-bold shadow-lg active:scale-[0.98]">
             <Link to="/eventos">
               {portfolioSectionContent.ctaLabel}
               <ArrowRight className="ml-2 w-5 h-5" />

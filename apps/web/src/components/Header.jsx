@@ -79,7 +79,7 @@ const Header = () => {
                   ))}
                 </div>
               </div>
-              <Button asChild className="premium-button flex-shrink-0 border border-white/10 text-white">
+              <Button asChild className="premium-button flex-shrink-0 border border-white/10">
                 <Link to="/contacto">Cotiza ahora</Link>
               </Button>
             </div>
@@ -129,7 +129,7 @@ const Header = () => {
                     <span>{phone.display}</span>
                   </a>
                 ))}
-                <Button asChild className="premium-button w-full border border-white/10 text-white">
+                <Button asChild className="premium-button w-full border border-white/10">
                   <Link to="/contacto" onClick={() => setMobileMenuOpen(false)}>
                     Cotiza ahora
                   </Link>
@@ -143,7 +143,7 @@ const Header = () => {
       <button
         type="button"
         onClick={scrollToTop}
-        className={`premium-button fixed right-6 z-50 rounded-full border border-white/10 p-3 text-white shadow-xl shadow-primary/25 transition-all duration-300 ${showBackToTop ? 'bottom-24 translate-y-0 opacity-100' : 'pointer-events-none bottom-20 translate-y-4 opacity-0'}`}
+        className={`premium-surface fixed right-6 z-50 rounded-full border border-white/10 p-3 text-white shadow-xl shadow-primary/25 transition-all duration-300 ${showBackToTop ? 'bottom-24 translate-y-0 opacity-100' : 'pointer-events-none bottom-20 translate-y-4 opacity-0'}`}
         aria-label="Volver arriba"
       >
         <ChevronUp className="h-5 w-5" />

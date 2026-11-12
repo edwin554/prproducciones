@@ -58,7 +58,7 @@ const NosotrosPage = () => {
                 <p className="text-lg text-white/80 mb-8 leading-relaxed font-medium">
                   {nosotrosPageContent.hero.description}
                 </p>
-                <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold text-white shadow-xl active:scale-[0.98]">
+                <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold shadow-xl active:scale-[0.98]">
                   <Link to="/contacto">{nosotrosPageContent.hero.ctaLabel}</Link>
                 </Button>
               </m.div>

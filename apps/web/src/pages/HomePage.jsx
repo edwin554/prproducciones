@@ -22,7 +22,7 @@ const HomePage = () => {
             {/* eslint-disable-next-line react/no-unknown-property -- React 18 solo reconoce el atributo en minúscula */}
             <img src={homePageContent.hero.backgroundImage} alt={homePageContent.hero.backgroundAlt} fetchpriority="high" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-br from-secondary/95 via-secondary/80 to-primary/60 mix-blend-multiply"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,35,85,0.28),transparent_32%)] mix-blend-screen"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(139,92,246,0.32),transparent_32%)] mix-blend-screen"></div>
           </div>
 
           {/* Content */}
@@ -59,7 +59,7 @@ const HomePage = () => {
               </div>
                
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-               <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold text-white shadow-xl shadow-primary/20 active:scale-[0.98]">
+               <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold shadow-xl shadow-primary/20 active:scale-[0.98]">
                  <Link to="/contacto">
                   {homePageContent.hero.primaryCtaLabel}
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -146,7 +146,7 @@ const HomePage = () => {
                   {homePageContent.about.description}
                 </p>
                 <div className="pt-6">
-                  <Button asChild size="lg" className="premium-button border border-white/10 px-8 py-6 text-lg font-bold text-white active:scale-[0.98]">
+                  <Button asChild size="lg" className="premium-button border border-white/10 px-8 py-6 text-lg font-bold active:scale-[0.98]">
                     <Link to="/servicios">
                       {homePageContent.about.ctaLabel}
                       <ArrowRight className="ml-2 w-5 h-5" />
@@ -187,7 +187,7 @@ const HomePage = () => {
               {homePageContent.cta.description}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-               <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold text-white shadow-xl active:scale-[0.98]">
+               <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold shadow-xl active:scale-[0.98]">
                 <Link to="/contacto">{homePageContent.cta.contactCtaLabel}</Link>
                 </Button>
                <Button asChild size="lg" variant="outline" className="premium-outline-button border-2 bg-transparent px-10 py-7 text-lg font-bold text-white hover:text-white active:scale-[0.98]">

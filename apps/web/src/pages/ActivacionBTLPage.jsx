@@ -13,7 +13,7 @@ const ActivacionBTLPage = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="relative min-h-[80dvh] flex items-center justify-center overflow-hidden bg-secondary">
+        <section className="dark relative min-h-[80dvh] flex items-center justify-center overflow-hidden bg-secondary">
           <div className="absolute inset-0 z-0">
             <img
               src={activacionBtlPageContent.hero.backgroundImage}
@@ -23,7 +23,7 @@ const ActivacionBTLPage = () => {
               className="w-full h-full object-cover opacity-40"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/80 to-transparent"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,35,85,0.24),transparent_32%)] mix-blend-screen"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(139,92,246,0.32),transparent_32%)] mix-blend-screen"></div>
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
@@ -102,7 +102,7 @@ const ActivacionBTLPage = () => {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-24 bg-secondary text-white relative overflow-hidden">
+        <section className="dark py-24 bg-secondary text-white relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-primary/20 blur-3xl rounded-full pointer-events-none"></div>
           
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -118,7 +118,7 @@ const ActivacionBTLPage = () => {
               <p className="text-xl text-white/80 mb-10 leading-relaxed max-w-2xl mx-auto font-medium">
                 {activacionBtlPageContent.cta.description}
               </p>
-              <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold text-white shadow-xl shadow-primary/20 active:scale-[0.98]">
+              <Button asChild size="lg" className="premium-button border border-white/10 px-10 py-7 text-lg font-bold shadow-xl shadow-primary/20 active:scale-[0.98]">
                 <Link to="/contacto">
                   {activacionBtlPageContent.cta.label}
                   <ArrowRight className="ml-2 w-5 h-5" />

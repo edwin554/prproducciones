@@ -316,7 +316,7 @@ const ContactForm = () => {
         <Button
           type="submit"
           disabled={!form.formState.isValid || form.formState.isSubmitting}
-          className="premium-button w-full border border-white/10 text-white active:scale-[0.98]"
+          className="premium-button w-full border border-white/10 active:scale-[0.98]"
         >
           {form.formState.isSubmitting ? contactPageContent.form.submittingLabel : contactPageContent.form.submitLabel}
         </Button>
