@@ -82,8 +82,9 @@ export const homePageContent = {
     subtitle: 'Productora y agencia de eventos de alto impacto con cobertura a nivel nacional.',
     description: 'Nos especializamos en la planificación, logística integral y producción técnica de eventos corporativos, comerciales y artísticos en Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Cartagena y en toda Colombia. Con un equipo calificado y disponibilidad 24/7, garantizamos la ejecución perfecta de tu proyecto, asegurando que tu marca se destaque y conecte de manera real con el público en cualquier lugar del país.',
     ctaLabel: 'Explorar nuestros servicios',
-    image: '/pr-producciones-team.jpg',
-    imageAlt: 'Equipo de PR Producciones - Activación de marca',
+    image: '/pr-producciones-modelos-protocolo.jpg',
+    imageWebp: '/pr-producciones-modelos-protocolo.webp',
+    imageAlt: 'PR Producciones, agencia BTL: modelos de protocolo A, AA y AAA, promotores, animadores, locutores, seguridad, DJ y logística. WhatsApp 311 731 8419.',
   },
   cta: {
     title: '¿LISTO PARA CREAR ALGO INCREÍBLE?',

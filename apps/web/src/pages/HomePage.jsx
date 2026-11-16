@@ -120,7 +120,19 @@ const HomePage = () => {
             }}>
                <div className="relative">
                  <div className="absolute -left-10 top-12 h-48 w-48 rounded-full bg-primary/25 blur-3xl opacity-80 mix-blend-screen pointer-events-none"></div>
-                 <img src={homePageContent.about.image} alt={homePageContent.about.imageAlt} loading="lazy" decoding="async" className="relative w-full h-[600px] object-cover rounded-3xl border border-white/10 shadow-2xl shadow-black/40" />
+                 {/* Póster vertical con texto: se muestra completo, sin recortar. */}
+                 <picture>
+                   <source srcSet={homePageContent.about.imageWebp} type="image/webp" />
+                   <img
+                     src={homePageContent.about.image}
+                     alt={homePageContent.about.imageAlt}
+                     width="1024"
+                     height="1536"
+                     loading="lazy"
+                     decoding="async"
+                     className="relative mx-auto w-full max-w-md h-auto rounded-3xl border border-white/10 shadow-2xl shadow-black/40"
+                   />
+                 </picture>
                </div>
              </m.div>
 
