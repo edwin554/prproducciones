@@ -7,6 +7,19 @@ export const portfolioSectionContent = {
   title: 'Nuestros Trabajos',
   description: 'Eventos realizados con éxito en todo el territorio nacional. Cada proyecto es una muestra de nuestro compromiso y calidad.',
   ctaLabel: 'Ver más trabajos',
+  videoCtaLabel: 'Quiero un evento así',
+  // Videos reales de eventos (archivos en public/videos). Para añadir otro, copia un bloque.
+  videos: [
+    {
+      src: '/videos/fiesta-musica-en-vivo.mp4',
+      poster: '/videos/fiesta-musica-en-vivo-poster.webp',
+      eyebrow: 'En video',
+      title: 'Celebración con música en vivo',
+      description: 'Agrupación en vivo, iluminación y producción completa para una fiesta que los invitados no olvidarán. Así se vive un evento de PR Producciones.',
+      tags: ['Música en vivo', 'Iluminación', 'Producción'],
+      quoteMessage: 'Hola, vi el video de la celebración con música en vivo en su página web y quiero cotizar un evento así.',
+    },
+  ],
   items: [
     {
       image: 'https://images.unsplash.com/photo-1498885145901-683e0e55d721?auto=format&fit=crop&w=800&q=75',
