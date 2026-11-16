@@ -84,7 +84,7 @@ export const homePageContent = {
     ctaLabel: 'Explorar nuestros servicios',
     image: '/pr-producciones-modelos-protocolo.jpg',
     imageWebp: '/pr-producciones-modelos-protocolo.webp',
-    imageAlt: 'PR Producciones, agencia BTL: modelos de protocolo A, AA y AAA, promotores, animadores, locutores, seguridad, DJ y logística. WhatsApp 311 731 8419.',
+    imageAlt: 'PR Producciones, agencia BTL: modelos de protocolo A, AA y AAA, promotores, animadores, locutores, seguridad, DJ y logística. WhatsApp 311 731 8419 y teléfono 304 529 8633.',
   },
   cta: {
     title: '¿LISTO PARA CREAR ALGO INCREÍBLE?',

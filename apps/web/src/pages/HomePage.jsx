@@ -127,7 +127,7 @@ const HomePage = () => {
                      src={homePageContent.about.image}
                      alt={homePageContent.about.imageAlt}
                      width="1024"
-                     height="1536"
+                     height="1598"
                      loading="lazy"
                      decoding="async"
                      className="relative mx-auto w-full max-w-md h-auto rounded-3xl border border-white/10 shadow-2xl shadow-black/40"
